@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Auctions — Edmundo`s TCG BID</title>
-  <meta name="description" content="Auction listing mockup for Edmundo`s TCG BID." />
+  <meta name="description" content="Explore live, upcoming, and closed Pokémon card auctions from Edmundo`s TCG BID." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,37 +14,44 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span>Macau Pokémon card auctions, done properly</span></div></a>
-        <button class="nav-toggle" aria-label="Open menu">☰</button>
-        <nav class="site-nav">
-          <a href="index.html">Home</a>
-          <a class="active" href="auctions.html">Auctions</a>
-          <a href="marketplace.html">Marketplace</a>
-          <a href="consign.html">Consign</a>
-          <a href="faq.html">FAQ</a>
-          <a class="btn btn-sm" href="auction-detail.html">Sample Lot</a>
-        </nav>
+        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span></div></a>
+        <button class="nav-toggle" aria-label="Open menu" data-i18n-aria-label="nav.openMenu">☰</button>
+        <div class="nav-actions">
+          <nav class="site-nav">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a class="active" href="auctions.html" data-i18n="nav.auctions">Auctions</a>
+            <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="consign.html" data-i18n="nav.consign">Consign</a>
+            <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a class="btn btn-sm" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+          </nav>
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="zh-HK">繁</button>
+            <button class="lang-btn" data-lang="zh-CN">简</button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="page-hero">
         <div class="container">
-          <div class="eyebrow">Auction schedule</div>
-          <h1>Weekly auctions, cleaner overview.</h1>
-          <p>Static listing layout showing live, upcoming, and closed auctions with the kind of information buyers actually care about.</p>
+          <div class="eyebrow" data-i18n="auctions.hero.eyebrow">Auction schedule</div>
+          <h1 data-i18n="auctions.hero.title">Weekly auctions with a clear overview.</h1>
+          <p data-i18n="auctions.hero.text">Browse live, upcoming, and completed events with the details collectors actually want to see at a glance.</p>
         </div>
       </section>
 
       <section class="section tight-top">
         <div class="container filter-bar glass-panel">
           <div class="filter-pills">
-            <button class="filter-chip active" data-filter="all">All</button>
-            <button class="filter-chip" data-filter="live">Live</button>
-            <button class="filter-chip" data-filter="upcoming">Upcoming</button>
-            <button class="filter-chip" data-filter="closed">Closed</button>
+            <button class="filter-chip active" data-filter="all" data-i18n="filters.all">All</button>
+            <button class="filter-chip" data-filter="live" data-i18n="filters.live">Live</button>
+            <button class="filter-chip" data-filter="upcoming" data-i18n="filters.upcoming">Upcoming</button>
+            <button class="filter-chip" data-filter="closed" data-i18n="filters.closed">Closed</button>
           </div>
-          <div class="muted">Mock data for GitHub Pages MVP</div>
+          <div class="muted" data-i18n="auctions.filterNote">Preview the current schedule and featured sale highlights.</div>
         </div>
       </section>
 
@@ -52,71 +59,71 @@
         <div class="container auction-list" id="auctionList">
           <article class="auction-row glass-panel" data-category="live">
             <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill pill-live">Live</span><span>Ends 10 May · 9:00 PM</span></div>
-              <h2>Gold Star Showcase</h2>
-              <p>Vintage grails, low-pop slabs, Crystal-era hitters, and trophy-adjacent collector bait. Yes, dangerous for wallets.</p>
-              <div class="auction-tags"><span>38 lots</span><span>Reserve on select lots</span><span>Manual invoice confirmation</span></div>
+              <div class="auction-meta"><span class="pill pill-live" data-i18n="filters.live">Live</span><span data-i18n="auctions.row1.time">Ends 10 May · 9:00 PM</span></div>
+              <h2 data-i18n="auctions.row1.title">Gold Star Showcase</h2>
+              <p data-i18n="auctions.row1.text">Vintage grails, low-pop slabs, Crystal-era highlights, and standout Japanese collector pieces.</p>
+              <div class="auction-tags"><span data-i18n="auctions.row1.tag1">38 lots</span><span data-i18n="auctions.row1.tag2">Reserve on select lots</span><span data-i18n="auctions.row1.tag3">Invoice confirmation after close</span></div>
             </div>
             <div class="auction-row-side">
               <strong data-countdown="2026-05-10T21:00:00+08:00">05d 11h 22m</strong>
-              <span>Featured estimate: MOP 42,000</span>
-              <a href="auction-detail.html" class="btn btn-sm">View lot</a>
+              <span data-i18n="auctions.row1.side">Featured estimate: MOP 42,000</span>
+              <a href="auction-detail.html" class="btn btn-sm" data-i18n="auctions.row1.btn">View lot</a>
             </div>
           </article>
 
           <article class="auction-row glass-panel" data-category="live">
             <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill pill-live">Live</span><span>Ends 11 May · 8:30 PM</span></div>
-              <h2>Modern Alt Art Night</h2>
-              <p>Strong modern chase selection for collectors who pretend they are buying for the binder and then suddenly own three slabs.</p>
-              <div class="auction-tags"><span>52 lots</span><span>No buyer account fee</span><span>Macau pickup available</span></div>
+              <div class="auction-meta"><span class="pill pill-live" data-i18n="filters.live">Live</span><span data-i18n="auctions.row2.time">Ends 11 May · 8:30 PM</span></div>
+              <h2 data-i18n="auctions.row2.title">Modern Alt Art Night</h2>
+              <p data-i18n="auctions.row2.text">A strong modern chase-card mix for collectors who like premium hits, clean presentation, and a little self-control.</p>
+              <div class="auction-tags"><span data-i18n="auctions.row2.tag1">52 lots</span><span data-i18n="auctions.row2.tag2">No buyer account fee</span><span data-i18n="auctions.row2.tag3">Macau pickup available</span></div>
             </div>
             <div class="auction-row-side">
               <strong data-countdown="2026-05-11T20:30:00+08:00">06d 10h 52m</strong>
-              <span>Top live bid: MOP 6,200</span>
-              <a href="auction-detail.html" class="btn btn-sm btn-ghost">Featured lots</a>
+              <span data-i18n="auctions.row2.side">Top live bid: MOP 6,200</span>
+              <a href="auction-detail.html" class="btn btn-sm btn-ghost" data-i18n="auctions.row2.btn">Featured lots</a>
             </div>
           </article>
 
           <article class="auction-row glass-panel" data-category="upcoming">
             <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill">Upcoming</span><span>Starts 14 May · 8:00 PM</span></div>
-              <h2>Pokémon 151 Sealed Drop</h2>
-              <p>Booster boxes, promo packs, accessory bundles, and a few spicy sealed cases for people who enjoy cardboard speculation with dramatic eye contact.</p>
-              <div class="auction-tags"><span>24 lots</span><span>Seller vetted</span><span>Condition disclosure required</span></div>
+              <div class="auction-meta"><span class="pill" data-i18n="filters.upcoming">Upcoming</span><span data-i18n="auctions.row3.time">Starts 14 May · 8:00 PM</span></div>
+              <h2 data-i18n="auctions.row3.title">Pokémon 151 Sealed Drop</h2>
+              <p data-i18n="auctions.row3.text">Booster boxes, promo packs, accessory bundles, and a handful of sealed cases for serious sealed collectors.</p>
+              <div class="auction-tags"><span data-i18n="auctions.row3.tag1">24 lots</span><span data-i18n="auctions.row3.tag2">Seller vetted</span><span data-i18n="auctions.row3.tag3">Condition disclosure required</span></div>
             </div>
             <div class="auction-row-side">
-              <strong>Preview open</strong>
-              <span>Expected range: MOP 320 – 9,500</span>
-              <a href="marketplace.html" class="btn btn-sm btn-ghost">Compare prices</a>
+              <strong data-i18n="auctions.row3.sideTitle">Preview open</strong>
+              <span data-i18n="auctions.row3.side">Expected range: MOP 320 – 9,500</span>
+              <a href="marketplace.html" class="btn btn-sm btn-ghost" data-i18n="auctions.row3.btn">Compare prices</a>
             </div>
           </article>
 
           <article class="auction-row glass-panel" data-category="upcoming">
             <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill">Upcoming</span><span>Starts 18 May · 7:30 PM</span></div>
-              <h2>PSA Vault Select</h2>
-              <p>A more premium slab-only event with admin review on every lot over MOP 10,000 and tighter payout rules for consignors.</p>
-              <div class="auction-tags"><span>31 lots</span><span>Identity check for high bids</span><span>Insured delivery option</span></div>
+              <div class="auction-meta"><span class="pill" data-i18n="filters.upcoming">Upcoming</span><span data-i18n="auctions.row4.time">Starts 18 May · 7:30 PM</span></div>
+              <h2 data-i18n="auctions.row4.title">PSA Vault Select</h2>
+              <p data-i18n="auctions.row4.text">A premium slab-focused event with extra review for high-value lots and carefully managed consignor onboarding.</p>
+              <div class="auction-tags"><span data-i18n="auctions.row4.tag1">31 lots</span><span data-i18n="auctions.row4.tag2">Identity check for high bids</span><span data-i18n="auctions.row4.tag3">Insured delivery option</span></div>
             </div>
             <div class="auction-row-side">
-              <strong>Catalog pending</strong>
-              <span>Seller intake closes in 3 days</span>
-              <a href="consign.html" class="btn btn-sm">Submit cards</a>
+              <strong data-i18n="auctions.row4.sideTitle">Catalog pending</strong>
+              <span data-i18n="auctions.row4.side">Seller intake closes in 3 days</span>
+              <a href="consign.html" class="btn btn-sm" data-i18n="auctions.row4.btn">Submit cards</a>
             </div>
           </article>
 
           <article class="auction-row glass-panel" data-category="closed">
             <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill">Closed</span><span>Ended 03 May</span></div>
-              <h2>Trainer Gallery Sprint</h2>
-              <p>Fast midweek event built around affordable chase cards, textured full arts, and sealed accessories.</p>
-              <div class="auction-tags"><span>44 lots</span><span>Sell-through 81%</span><span>0 disputes</span></div>
+              <div class="auction-meta"><span class="pill" data-i18n="filters.closed">Closed</span><span data-i18n="auctions.row5.time">Ended 03 May</span></div>
+              <h2 data-i18n="auctions.row5.title">Trainer Gallery Sprint</h2>
+              <p data-i18n="auctions.row5.text">A fast midweek event centred on affordable chase cards, textured full arts, and sealed accessories.</p>
+              <div class="auction-tags"><span data-i18n="auctions.row5.tag1">44 lots</span><span data-i18n="auctions.row5.tag2">Sell-through 81%</span><span data-i18n="auctions.row5.tag3">0 disputes</span></div>
             </div>
             <div class="auction-row-side">
               <strong>MOP 57,900 GMV</strong>
-              <span>Average close: MOP 1,316</span>
-              <a href="#" class="btn btn-sm btn-ghost">View results</a>
+              <span data-i18n="auctions.row5.side">Average close: MOP 1,316</span>
+              <a href="#" class="btn btn-sm btn-ghost" data-i18n="auctions.row5.btn">View results</a>
             </div>
           </article>
         </div>
@@ -125,17 +132,17 @@
       <section class="section section-dark">
         <div class="container split-grid">
           <div>
-            <div class="eyebrow">Operational note</div>
-            <h2>MVP auction ops</h2>
-            <p>Because this is a static prototype, the auction actions are illustrative. In a production version, bids would require authentication, anti-snipe rules, event logging, and server-side validation. For the MVP business model, the UI already leaves space for those realities instead of pretending magic happens.</p>
+            <div class="eyebrow" data-i18n="auctions.ops.eyebrow">Auction operations</div>
+            <h2 data-i18n="auctions.ops.title">Clear processes support confident bidding</h2>
+            <p data-i18n="auctions.ops.text">Great auctions are not just about the cards. They also depend on clear timing, visible buyer expectations, payment follow-up, and reliable handoff after a sale closes.</p>
           </div>
           <aside class="glass-panel">
-            <h3>Admin trust checklist</h3>
+            <h3 data-i18n="auctions.ops.listTitle">Service checklist</h3>
             <ul class="check-list">
-              <li>Flag reserve lots clearly</li>
-              <li>Lock suspicious buyers before invoice release</li>
-              <li>Store proof-of-payment references</li>
-              <li>Capture pickup / shipping handoff timestamps</li>
+              <li data-i18n="auctions.ops.1">Flag reserve lots clearly</li>
+              <li data-i18n="auctions.ops.2">Review suspicious buyer activity before invoice release</li>
+              <li data-i18n="auctions.ops.3">Store proof-of-payment references</li>
+              <li data-i18n="auctions.ops.4">Log pickup and shipping handoff times</li>
             </ul>
           </aside>
         </div>
@@ -144,9 +151,9 @@
 
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div><strong>Edmundo`s TCG BID</strong><p>Static MVP concept for GitHub Pages.</p></div>
-        <div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="marketplace.html">Marketplace</a><a href="faq.html">FAQ</a></div>
-        <div><span class="footer-label">Prototype note</span><p>Buttons and prices are demo content only.</p></div>
+        <div><strong>Edmundo`s TCG BID</strong><p data-i18n="footer.blurb">Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.</p></div>
+        <div><span class="footer-label" data-i18n="footer.explore">Explore</span><a href="index.html" data-i18n="nav.home">Home</a><a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a><a href="faq.html" data-i18n="nav.faq">FAQ</a></div>
+        <div><span class="footer-label" data-i18n="footer.serviceTitle">Collector service</span><p data-i18n="footer.serviceText">Auction examples, prices, and timelines are presented as sample content for preview purposes.</p></div>
       </div>
     </footer>
   </div>

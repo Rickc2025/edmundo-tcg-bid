@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marketplace — Edmundo`s TCG BID</title>
-  <meta name="description" content="Marketplace/search mockup for Edmundo`s TCG BID." />
+  <meta name="description" content="Browse marketplace listings for singles, slabs, sealed products, and collector bundles." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,67 +14,74 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span>Macau Pokémon card auctions, done properly</span></div></a>
-        <button class="nav-toggle" aria-label="Open menu">☰</button>
-        <nav class="site-nav">
-          <a href="index.html">Home</a>
-          <a href="auctions.html">Auctions</a>
-          <a class="active" href="marketplace.html">Marketplace</a>
-          <a href="consign.html">Consign</a>
-          <a href="faq.html">FAQ</a>
-          <a class="btn btn-sm" href="auction-detail.html">Sample Lot</a>
-        </nav>
+        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span></div></a>
+        <button class="nav-toggle" aria-label="Open menu" data-i18n-aria-label="nav.openMenu">☰</button>
+        <div class="nav-actions">
+          <nav class="site-nav">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Auctions</a>
+            <a class="active" href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="consign.html" data-i18n="nav.consign">Consign</a>
+            <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a class="btn btn-sm" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+          </nav>
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="zh-HK">繁</button>
+            <button class="lang-btn" data-lang="zh-CN">简</button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="page-hero">
         <div class="container">
-          <div class="eyebrow">Buy-now mockup</div>
-          <h1>Marketplace search without the visual mess.</h1>
-          <p>A static search/filter experience showing how singles, slabs, sealed product, and collection lots could live beside auctions.</p>
+          <div class="eyebrow" data-i18n="market.hero.eyebrow">Buy-now catalog</div>
+          <h1 data-i18n="market.hero.title">Marketplace search without the clutter.</h1>
+          <p data-i18n="market.hero.text">Explore singles, slabs, sealed products, and collection lots in a cleaner browsing experience designed for collectors.</p>
         </div>
       </section>
 
       <section class="section tight-top">
         <div class="container marketplace-layout">
           <aside class="glass-panel sidebar-filters">
-            <h3>Search filters</h3>
-            <label class="input-label">Keyword<input type="text" placeholder="Pikachu, Umbreon, 151..." /></label>
-            <label class="input-label">Category
+            <h3 data-i18n="market.filters.title">Search filters</h3>
+            <label class="input-label"><span data-i18n="market.filters.keyword">Keyword</span><input type="text" placeholder="Pikachu, Umbreon, 151..." data-i18n-placeholder="market.filters.keywordPlaceholder" /></label>
+            <label class="input-label"><span data-i18n="market.filters.category">Category</span>
               <select>
-                <option>All categories</option>
-                <option>Singles</option>
-                <option>Graded</option>
-                <option>Sealed</option>
-                <option>Accessories</option>
+                <option data-i18n="market.filters.categoryAll">All categories</option>
+                <option data-i18n="market.filters.categorySingles">Singles</option>
+                <option data-i18n="market.filters.categoryGraded">Graded</option>
+                <option data-i18n="market.filters.categorySealed">Sealed</option>
+                <option data-i18n="market.filters.categoryAccessories">Accessories</option>
               </select>
             </label>
-            <label class="input-label">Condition
+            <label class="input-label"><span data-i18n="market.filters.condition">Condition</span>
               <select>
-                <option>Any condition</option>
-                <option>Raw NM</option>
+                <option data-i18n="market.filters.conditionAny">Any condition</option>
+                <option data-i18n="market.filters.conditionRaw">Raw NM</option>
                 <option>PSA 9</option>
                 <option>PSA 10</option>
               </select>
             </label>
-            <label class="input-label">Price range<input type="text" placeholder="MOP 500 - 5,000" /></label>
-            <button class="btn btn-block">Apply mock filters</button>
-            <p class="fine-print">UI only. Search is not wired to a backend.</p>
+            <label class="input-label"><span data-i18n="market.filters.price">Price range</span><input type="text" placeholder="MOP 500 - 5,000" data-i18n-placeholder="market.filters.pricePlaceholder" /></label>
+            <button class="btn btn-block" data-i18n="market.filters.button">Apply filters</button>
+            <p class="fine-print" data-i18n="market.filters.note">Search controls are shown here as a browsing preview.</p>
           </aside>
 
           <div>
             <div class="results-head glass-panel">
               <div>
-                <strong>24 results</strong>
-                <p class="muted">Best match for premium Pokémon inventory in Macau</p>
+                <strong data-i18n="market.results.count">24 results</strong>
+                <p class="muted" data-i18n="market.results.note">Best match for premium Pokémon inventory in Macau</p>
               </div>
               <div class="sort-row">
-                <span>Sort by</span>
+                <span data-i18n="market.results.sort">Sort by</span>
                 <select>
-                  <option>Featured</option>
-                  <option>Price: Low to high</option>
-                  <option>Newest listed</option>
+                  <option data-i18n="market.results.sortFeatured">Featured</option>
+                  <option data-i18n="market.results.sortPrice">Price: Low to high</option>
+                  <option data-i18n="market.results.sortNewest">Newest listed</option>
                 </select>
               </div>
             </div>
@@ -83,44 +90,44 @@
               <article class="product-card glass-panel">
                 <span class="pill">PSA 10</span>
                 <h3>Pikachu Precious Collector Promo</h3>
-                <p>Japanese promo · certification verified manually</p>
+                <p data-i18n="market.card1.text">Japanese promo · certification verified manually</p>
                 <strong>MOP 8,800</strong>
-                <small>Local pickup or insured shipping</small>
+                <small data-i18n="market.card1.small">Local pickup or insured shipping</small>
               </article>
               <article class="product-card glass-panel">
-                <span class="pill">Raw NM</span>
+                <span class="pill" data-i18n="common.rawNm">Raw NM</span>
                 <h3>Umbreon VMAX Alt Art</h3>
-                <p>Detailed front/back condition photos included</p>
+                <p data-i18n="market.card2.text">Detailed front and back condition photos included</p>
                 <strong>MOP 4,600</strong>
-                <small>Seller approved for marketplace listing</small>
+                <small data-i18n="market.card2.small">Seller approved for marketplace listing</small>
               </article>
               <article class="product-card glass-panel">
-                <span class="pill">Sealed</span>
+                <span class="pill" data-i18n="common.sealed">Sealed</span>
                 <h3>151 Booster Box</h3>
-                <p>Japanese sealed stock · shrink verified on intake</p>
+                <p data-i18n="market.card3.text">Japanese sealed stock · shrink verified on intake</p>
                 <strong>MOP 980</strong>
-                <small>Quantity available: 6</small>
+                <small data-i18n="market.card3.small">Quantity available: 6</small>
               </article>
               <article class="product-card glass-panel">
-                <span class="pill">Collection lot</span>
-                <h3>EX Era binder starter bundle</h3>
-                <p>Mixed holo/raw pages aimed at nostalgia buyers</p>
+                <span class="pill" data-i18n="market.card4.pill">Collection lot</span>
+                <h3 data-i18n="market.card4.title">EX Era binder starter bundle</h3>
+                <p data-i18n="market.card4.text">Mixed holo and raw pages aimed at nostalgia buyers</p>
                 <strong>MOP 2,200</strong>
-                <small>Manual review needed before checkout release</small>
+                <small data-i18n="market.card4.small">Additional review before checkout release</small>
               </article>
               <article class="product-card glass-panel">
                 <span class="pill">PSA 9</span>
                 <h3>Charizard V Alt Art</h3>
-                <p>Modern staple slab with clean eye appeal</p>
+                <p data-i18n="market.card5.text">A modern staple slab with strong eye appeal</p>
                 <strong>MOP 1,950</strong>
-                <small>Bank transfer accepted in MVP flow</small>
+                <small data-i18n="market.card5.small">Bank transfer accepted after invoice</small>
               </article>
               <article class="product-card glass-panel">
-                <span class="pill">Accessory</span>
-                <h3>Pokémon Center deck sleeves set</h3>
-                <p>Sealed accessories for casual add-on orders</p>
+                <span class="pill" data-i18n="market.card6.pill">Accessory</span>
+                <h3 data-i18n="market.card6.title">Pokémon Center deck sleeves set</h3>
+                <p data-i18n="market.card6.text">Sealed accessories for casual add-on orders</p>
                 <strong>MOP 180</strong>
-                <small>Add to invoice with marketplace orders</small>
+                <small data-i18n="market.card6.small">Can be added to marketplace invoices</small>
               </article>
             </div>
           </div>
@@ -130,17 +137,17 @@
       <section class="section section-dark">
         <div class="container split-grid">
           <div>
-            <div class="eyebrow">Marketplace ops</div>
-            <h2>Why buy-now matters for the MVP</h2>
-            <p>Auctions create excitement; marketplace listings create consistency. A production version could let unsold auction lots roll into buy-now inventory automatically, which is frankly less wasteful than pretending every card needs its own dramatic finale.</p>
+            <div class="eyebrow" data-i18n="market.ops.eyebrow">Marketplace operations</div>
+            <h2 data-i18n="market.ops.title">A steady catalog complements the auction calendar</h2>
+            <p data-i18n="market.ops.text">Auctions create excitement. Marketplace listings create consistency. Together they support repeat buying, better price discovery, and a more complete collector experience.</p>
           </div>
           <aside class="glass-panel">
-            <h3>Trust cues shown here</h3>
+            <h3 data-i18n="market.ops.listTitle">Trust cues shown here</h3>
             <ul class="check-list">
-              <li>Condition disclosure callouts</li>
-              <li>Seller approval messaging</li>
-              <li>Manual payment confirmation expectation</li>
-              <li>Pickup / insured shipping availability</li>
+              <li data-i18n="market.ops.1">Condition disclosure callouts</li>
+              <li data-i18n="market.ops.2">Seller approval messaging</li>
+              <li data-i18n="market.ops.3">Manual payment confirmation expectations</li>
+              <li data-i18n="market.ops.4">Pickup and insured shipping availability</li>
             </ul>
           </aside>
         </div>
@@ -149,9 +156,9 @@
 
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div><strong>Edmundo`s TCG BID</strong><p>Static marketplace/search mockup.</p></div>
-        <div><span class="footer-label">Pages</span><a href="auctions.html">Auctions</a><a href="consign.html">Consign</a><a href="faq.html">FAQ</a></div>
-        <div><span class="footer-label">Prototype note</span><p>Checkout/payment shown conceptually only.</p></div>
+        <div><strong>Edmundo`s TCG BID</strong><p data-i18n="footer.blurb">Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.</p></div>
+        <div><span class="footer-label" data-i18n="footer.pages">Pages</span><a href="auctions.html" data-i18n="nav.auctions">Auctions</a><a href="consign.html" data-i18n="nav.consign">Consign</a><a href="faq.html" data-i18n="nav.faq">FAQ</a></div>
+        <div><span class="footer-label" data-i18n="footer.serviceTitle">Collector service</span><p data-i18n="footer.serviceText">Auction examples, prices, and timelines are presented as sample content for preview purposes.</p></div>
       </div>
     </footer>
   </div>

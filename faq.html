@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ & How It Works — Edmundo`s TCG BID</title>
-  <meta name="description" content="FAQ and how-it-works page for Edmundo`s TCG BID." />
+  <meta name="description" content="Frequently asked questions about bidding, payment, pickup, shipping, and consignments." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,25 +14,32 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span>Macau Pokémon card auctions, done properly</span></div></a>
-        <button class="nav-toggle" aria-label="Open menu">☰</button>
-        <nav class="site-nav">
-          <a href="index.html">Home</a>
-          <a href="auctions.html">Auctions</a>
-          <a href="marketplace.html">Marketplace</a>
-          <a href="consign.html">Consign</a>
-          <a class="active" href="faq.html">FAQ</a>
-          <a class="btn btn-sm" href="auction-detail.html">Sample Lot</a>
-        </nav>
+        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span></div></a>
+        <button class="nav-toggle" aria-label="Open menu" data-i18n-aria-label="nav.openMenu">☰</button>
+        <div class="nav-actions">
+          <nav class="site-nav">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Auctions</a>
+            <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="consign.html" data-i18n="nav.consign">Consign</a>
+            <a class="active" href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a class="btn btn-sm" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+          </nav>
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="zh-HK">繁</button>
+            <button class="lang-btn" data-lang="zh-CN">简</button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="page-hero">
         <div class="container">
-          <div class="eyebrow">FAQ & operations</div>
-          <h1>How the MVP works</h1>
-          <p>Clean explanations for buyers, sellers, and admins — because confusion is not a feature.</p>
+          <div class="eyebrow" data-i18n="faq.hero.eyebrow">FAQ & service guide</div>
+          <h1 data-i18n="faq.hero.title">How the experience works</h1>
+          <p data-i18n="faq.hero.text">Clear answers for buyers and sellers — because confusion is not a service strategy.</p>
         </div>
       </section>
 
@@ -40,34 +47,34 @@
         <div class="container split-grid faq-layout">
           <div>
             <div class="faq-item glass-panel">
-              <h3>How do I bid?</h3>
-              <p>In the real product, you would create an account, pass any required verification, and place bids on eligible lots. In this static MVP, the UI demonstrates the flow without backend bidding logic.</p>
+              <h3 data-i18n="faq.q1.title">How do I bid?</h3>
+              <p data-i18n="faq.q1.text">Buyers create an account, complete any required verification, and place bids on eligible lots during the auction window.</p>
             </div>
             <div class="faq-item glass-panel">
-              <h3>How do I pay if I win?</h3>
-              <p>For the MVP, buyers are expected to complete payment by bank transfer within 48 hours. An admin then manually confirms the payment before release, pickup scheduling, or shipping.</p>
+              <h3 data-i18n="faq.q2.title">How do I pay if I win?</h3>
+              <p data-i18n="faq.q2.text">Winners receive an invoice and complete payment by bank transfer within 48 hours. Staff then confirms payment before release, pickup, or shipping.</p>
             </div>
             <div class="faq-item glass-panel">
-              <h3>Can Macau buyers collect in person?</h3>
-              <p>Yes — local pickup is a strong MVP option. It reduces shipping friction, makes manual confirmation easier, and gives the platform an extra trust signal.</p>
+              <h3 data-i18n="faq.q3.title">Can Macau buyers collect in person?</h3>
+              <p data-i18n="faq.q3.text">Yes. Local pickup is available for eligible orders and helps make payment confirmation and handoff simpler.</p>
             </div>
             <div class="faq-item glass-panel">
-              <h3>What happens if a seller submits expensive cards?</h3>
-              <p>High-value cards should go through extra checks: identity verification, photo review, reserve discussion, and potentially provenance evidence for especially sensitive lots.</p>
+              <h3 data-i18n="faq.q4.title">What happens when a seller submits expensive cards?</h3>
+              <p data-i18n="faq.q4.text">High-value cards may require additional identity checks, photo review, reserve discussion, and supporting provenance details.</p>
             </div>
             <div class="faq-item glass-panel">
-              <h3>Is the marketplace separate from auctions?</h3>
-              <p>Functionally yes, but they should connect. Unsold auction lots can move to marketplace inventory, and marketplace data can help estimate auction reserves.</p>
+              <h3 data-i18n="faq.q5.title">Is the marketplace separate from auctions?</h3>
+              <p data-i18n="faq.q5.text">They serve different buyer journeys, but they work well together. Unsold auction lots can move into marketplace inventory, while marketplace pricing helps guide auction expectations.</p>
             </div>
           </div>
 
           <aside class="glass-panel faq-side">
-            <h3>Launch playbook</h3>
+            <h3 data-i18n="faq.side.title">Service playbook</h3>
             <div class="timeline small-timeline">
-              <div class="timeline-item"><strong>Accounts</strong><span>Manual approval for early users is acceptable.</span></div>
-              <div class="timeline-item"><strong>Payments</strong><span>Bank transfer + manual confirmation is enough for MVP.</span></div>
-              <div class="timeline-item"><strong>Fulfillment</strong><span>Pickup and tracked shipping both supported.</span></div>
-              <div class="timeline-item"><strong>Trust</strong><span>Show review status and operational policies clearly.</span></div>
+              <div class="timeline-item"><strong data-i18n="faq.side.1title">Accounts</strong><span data-i18n="faq.side.1text">Early users can be reviewed carefully before bidding access is granted.</span></div>
+              <div class="timeline-item"><strong data-i18n="faq.side.2title">Payments</strong><span data-i18n="faq.side.2text">Bank transfer with manual confirmation keeps the process clear.</span></div>
+              <div class="timeline-item"><strong data-i18n="faq.side.3title">Fulfilment</strong><span data-i18n="faq.side.3text">Pickup and tracked shipping can both be supported.</span></div>
+              <div class="timeline-item"><strong data-i18n="faq.side.4title">Trust</strong><span data-i18n="faq.side.4text">Review status and operational policies should stay visible.</span></div>
             </div>
           </aside>
         </div>
@@ -76,18 +83,18 @@
       <section class="section section-dark">
         <div class="container split-grid">
           <div>
-            <div class="eyebrow">Recommended next step</div>
-            <h2>If this prototype becomes real</h2>
-            <p>The next layer should be a lightweight backend for authentication, bid events, invoice generation, admin moderation, and manual payment tracking. Keep the clean front end; add boring but essential systems underneath it. Glamour without operations is how marketplaces become apology generators.</p>
+            <div class="eyebrow" data-i18n="faq.next.eyebrow">Recommended next step</div>
+            <h2 data-i18n="faq.next.title">The right foundation for a full launch</h2>
+            <p data-i18n="faq.next.text">A complete launch should pair this polished front end with account management, bid tracking, invoice handling, moderation tools, and payment status controls behind the scenes.</p>
           </div>
           <aside class="glass-panel">
-            <h3>Must-have production modules</h3>
+            <h3 data-i18n="faq.next.listTitle">Core service modules</h3>
             <ul class="check-list">
-              <li>Auth + bidder eligibility</li>
-              <li>Server-side bid validation</li>
-              <li>Order / invoice tracking</li>
-              <li>Manual payment state management</li>
-              <li>Seller payout records</li>
+              <li data-i18n="faq.next.1">Bidder eligibility and account controls</li>
+              <li data-i18n="faq.next.2">Bid validation and event tracking</li>
+              <li data-i18n="faq.next.3">Order and invoice management</li>
+              <li data-i18n="faq.next.4">Payment status handling</li>
+              <li data-i18n="faq.next.5">Seller payout records</li>
             </ul>
           </aside>
         </div>
@@ -96,9 +103,9 @@
 
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div><strong>Edmundo`s TCG BID</strong><p>FAQ/how-it-works page for the static MVP.</p></div>
-        <div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="auctions.html">Auctions</a><a href="consign.html">Consign</a></div>
-        <div><span class="footer-label">Prototype note</span><p>All policies shown are suggestions for the MVP phase.</p></div>
+        <div><strong>Edmundo`s TCG BID</strong><p data-i18n="footer.blurb">Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.</p></div>
+        <div><span class="footer-label" data-i18n="footer.explore">Explore</span><a href="index.html" data-i18n="nav.home">Home</a><a href="auctions.html" data-i18n="nav.auctions">Auctions</a><a href="consign.html" data-i18n="nav.consign">Consign</a></div>
+        <div><span class="footer-label" data-i18n="footer.serviceTitle">Collector service</span><p data-i18n="footer.serviceText">Auction examples, prices, and timelines are presented as sample content for preview purposes.</p></div>
       </div>
     </footer>
   </div>

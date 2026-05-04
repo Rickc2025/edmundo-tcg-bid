@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lot Detail — Edmundo`s TCG BID</title>
-  <meta name="description" content="Auction lot detail mockup for Edmundo`s TCG BID." />
+  <meta name="description" content="Featured lot detail for a premium Pokémon card auction at Edmundo`s TCG BID." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,30 +14,37 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span>Macau Pokémon card auctions, done properly</span></div></a>
-        <button class="nav-toggle" aria-label="Open menu">☰</button>
-        <nav class="site-nav">
-          <a href="index.html">Home</a>
-          <a href="auctions.html">Auctions</a>
-          <a href="marketplace.html">Marketplace</a>
-          <a href="consign.html">Consign</a>
-          <a href="faq.html">FAQ</a>
-          <a class="btn btn-sm active" href="auction-detail.html">Sample Lot</a>
-        </nav>
+        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span></div></a>
+        <button class="nav-toggle" aria-label="Open menu" data-i18n-aria-label="nav.openMenu">☰</button>
+        <div class="nav-actions">
+          <nav class="site-nav">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Auctions</a>
+            <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="consign.html" data-i18n="nav.consign">Consign</a>
+            <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a class="btn btn-sm active" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+          </nav>
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="zh-HK">繁</button>
+            <button class="lang-btn" data-lang="zh-CN">简</button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="page-hero detail-hero">
-        <div class="container breadcrumbs"><a href="index.html">Home</a><span>/</span><a href="auctions.html">Auctions</a><span>/</span><span>Lot 07</span></div>
+        <div class="container breadcrumbs"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><a href="auctions.html" data-i18n="nav.auctions">Auctions</a><span>/</span><span data-i18n="detail.breadcrumbLot">Lot 07</span></div>
         <div class="container detail-grid">
           <div class="lot-gallery glass-panel">
             <div class="mock-card-art">
               <div class="foil-circle"></div>
               <div class="mock-card-frame">
-                <span>Featured slab mockup</span>
+                <span data-i18n="detail.mock.label">Featured slab preview</span>
                 <strong>Pikachu Poncho Rayquaza</strong>
-                <small>Premium showcase visual placeholder</small>
+                <small data-i18n="detail.mock.sub">Collector presentation sample visual</small>
               </div>
             </div>
             <div class="thumb-row">
@@ -49,41 +56,41 @@
           </div>
 
           <div class="lot-info">
-            <div class="auction-meta"><span class="pill pill-live">Live bidding</span><span>Lot 07 · Gold Star Showcase</span></div>
-            <h1>2016 Pokémon Center Promo — Pikachu Poncho-Wearing Rayquaza PSA 10</h1>
-            <p class="lede small">A premium centerpiece lot designed to show how high-value cards can be presented with better hierarchy, clearer trust notes, and less visual chaos than the reference site.</p>
+            <div class="auction-meta"><span class="pill pill-live" data-i18n="detail.live">Live bidding</span><span data-i18n="detail.meta">Lot 07 · Gold Star Showcase</span></div>
+            <h1 data-i18n="detail.title">2016 Pokémon Center Promo — Pikachu Poncho-Wearing Rayquaza PSA 10</h1>
+            <p class="lede small" data-i18n="detail.lede">A centrepiece lot presented with cleaner hierarchy, trust notes, and the information serious buyers want immediately.</p>
 
             <div class="bid-panel glass-panel">
               <div class="bid-grid">
-                <div><span>Current bid</span><strong>MOP 18,500</strong></div>
-                <div><span>Next minimum</span><strong>MOP 19,000</strong></div>
-                <div><span>Estimate</span><strong>MOP 22,000 – 28,000</strong></div>
-                <div><span>Closes in</span><strong data-countdown="2026-05-10T21:00:00+08:00">05d 11h 22m</strong></div>
+                <div><span data-i18n="detail.bid.current">Current bid</span><strong>MOP 18,500</strong></div>
+                <div><span data-i18n="detail.bid.next">Next minimum</span><strong>MOP 19,000</strong></div>
+                <div><span data-i18n="detail.bid.estimate">Estimate</span><strong>MOP 22,000 – 28,000</strong></div>
+                <div><span data-i18n="common.closesIn">Closes in</span><strong data-countdown="2026-05-10T21:00:00+08:00">05d 11h 22m</strong></div>
               </div>
               <div class="cta-row">
-                <a class="btn" href="#payment-flow">How winning works</a>
-                <a class="btn btn-ghost" href="faq.html">Read buyer FAQ</a>
+                <a class="btn" href="#payment-flow" data-i18n="detail.cta.primary">How winning works</a>
+                <a class="btn btn-ghost" href="faq.html" data-i18n="detail.cta.secondary">Read buyer FAQ</a>
               </div>
-              <p class="fine-print">Prototype only — no real bidding backend connected.</p>
+              <p class="fine-print" data-i18n="detail.fine">Auction activity shown here is sample content for preview.</p>
             </div>
 
             <div class="info-grid two-col">
               <article class="glass-panel info-card">
-                <h3>Lot details</h3>
+                <h3 data-i18n="detail.info.lotTitle">Lot details</h3>
                 <ul>
-                  <li>Category: Slabbed single</li>
-                  <li>Language: Japanese</li>
-                  <li>Certification shown on final production card page</li>
-                  <li>Reserve: Not disclosed publicly</li>
+                  <li data-i18n="detail.info.1">Category: Slabbed single</li>
+                  <li data-i18n="detail.info.2">Language: Japanese</li>
+                  <li data-i18n="detail.info.3">Certification displayed with the final listing package</li>
+                  <li data-i18n="detail.info.4">Reserve: Not disclosed publicly</li>
                 </ul>
               </article>
               <article class="glass-panel info-card">
-                <h3>Trust notes</h3>
+                <h3 data-i18n="detail.info.trustTitle">Trust notes</h3>
                 <ul>
-                  <li>Seller identity checked before listing</li>
-                  <li>Photos reviewed by staff</li>
-                  <li>Manual fraud review on large bid jumps</li>
-                  <li>Payment must clear before release</li>
+                  <li data-i18n="detail.trust.1">Seller identity checked before listing</li>
+                  <li data-i18n="detail.trust.2">Photos reviewed by staff</li>
+                  <li data-i18n="detail.trust.3">Manual review for large bid jumps</li>
+                  <li data-i18n="detail.trust.4">Payment must clear before release</li>
                 </ul>
               </article>
             </div>
@@ -94,18 +101,18 @@
       <section class="section">
         <div class="container split-grid">
           <div>
-            <div class="eyebrow">Description</div>
-            <h2>Collector-facing presentation that feels premium</h2>
-            <p>This lot page is intentionally more editorial and less noisy. Important signals are surfaced fast: current bid, next step, auction timing, trust controls, and how payment works if you actually win the thing.</p>
-            <p>The production version should support longer provenance notes, raw image zoom, cert lookup links, seller shipping origin, and event-based bid history. For MVP, the main win is clarity.</p>
+            <div class="eyebrow" data-i18n="detail.desc.eyebrow">Description</div>
+            <h2 data-i18n="detail.desc.title">Collector-facing presentation that feels premium</h2>
+            <p data-i18n="detail.desc.text1">Important signals are surfaced quickly: current bid, next step, auction timing, trust controls, and what happens after a winning bid.</p>
+            <p data-i18n="detail.desc.text2">This style of listing leaves room for provenance, certification checks, detailed imaging, and shipping origin without overwhelming the buyer.</p>
           </div>
           <aside class="glass-panel">
-            <h3>Bid history mockup</h3>
+            <h3 data-i18n="detail.history.title">Bid history</h3>
             <ul class="history-list">
-              <li><span>Bidder A12</span><strong>MOP 18,500</strong></li>
-              <li><span>Bidder H03</span><strong>MOP 18,000</strong></li>
-              <li><span>Bidder K77</span><strong>MOP 17,500</strong></li>
-              <li><span>Bidder A12</span><strong>MOP 17,000</strong></li>
+              <li><span data-i18n="detail.history.1name">Bidder A12</span><strong>MOP 18,500</strong></li>
+              <li><span data-i18n="detail.history.2name">Bidder H03</span><strong>MOP 18,000</strong></li>
+              <li><span data-i18n="detail.history.3name">Bidder K77</span><strong>MOP 17,500</strong></li>
+              <li><span data-i18n="detail.history.4name">Bidder A12</span><strong>MOP 17,000</strong></li>
             </ul>
           </aside>
         </div>
@@ -114,21 +121,21 @@
       <section class="section section-dark" id="payment-flow">
         <div class="container split-grid">
           <div>
-            <div class="eyebrow">Macau payment flow</div>
-            <h2>What happens after you win</h2>
+            <div class="eyebrow" data-i18n="detail.payment.eyebrow">Payment flow</div>
+            <h2 data-i18n="detail.payment.title">What happens after you win</h2>
             <div class="timeline">
-              <div class="timeline-item"><strong>Invoice issued</strong><span>Buyer receives summary with lot amount, buyer premium placeholder, and shipping or pickup option.</span></div>
-              <div class="timeline-item"><strong>Bank transfer made</strong><span>Buyer completes Macau/HK bank transfer and uploads proof or transfer reference within 48 hours.</span></div>
-              <div class="timeline-item"><strong>Manual confirmation</strong><span>Admin checks payment manually, then unlocks pickup scheduling or dispatch workflow.</span></div>
+              <div class="timeline-item"><strong data-i18n="detail.payment.1title">Invoice issued</strong><span data-i18n="detail.payment.1text">The buyer receives a summary with the lot amount, buyer premium, and shipping or pickup option.</span></div>
+              <div class="timeline-item"><strong data-i18n="detail.payment.2title">Bank transfer made</strong><span data-i18n="detail.payment.2text">The buyer completes a Macau or Hong Kong bank transfer and submits proof within 48 hours.</span></div>
+              <div class="timeline-item"><strong data-i18n="detail.payment.3title">Confirmation completed</strong><span data-i18n="detail.payment.3text">After staff confirms payment, pickup scheduling or dispatch can proceed.</span></div>
             </div>
           </div>
           <aside class="glass-panel">
-            <h3>Operations notes</h3>
+            <h3 data-i18n="detail.ops.title">Service notes</h3>
             <ul class="check-list">
-              <li>Pickup window can be offered for local Macau buyers</li>
-              <li>Shipping fees confirmed before dispatch</li>
-              <li>Orders remain on hold until staff confirmation</li>
-              <li>Dispute/reporting period should be visible in account area</li>
+              <li data-i18n="detail.ops.1">Local pickup can be offered for Macau buyers</li>
+              <li data-i18n="detail.ops.2">Shipping fees are confirmed before dispatch</li>
+              <li data-i18n="detail.ops.3">Orders stay on hold until staff confirmation</li>
+              <li data-i18n="detail.ops.4">Issue reporting periods should remain visible</li>
             </ul>
           </aside>
         </div>
@@ -137,9 +144,9 @@
 
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div><strong>Edmundo`s TCG BID</strong><p>Designed as a GitHub Pages-friendly MVP prototype.</p></div>
-        <div><span class="footer-label">Navigate</span><a href="auctions.html">Auctions</a><a href="marketplace.html">Marketplace</a><a href="consign.html">Consign</a></div>
-        <div><span class="footer-label">Lot status</span><p>Static content. No real payments or bids are collected on this page.</p></div>
+        <div><strong>Edmundo`s TCG BID</strong><p data-i18n="footer.blurb">Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.</p></div>
+        <div><span class="footer-label" data-i18n="footer.navigate">Navigate</span><a href="auctions.html" data-i18n="nav.auctions">Auctions</a><a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a><a href="consign.html" data-i18n="nav.consign">Consign</a></div>
+        <div><span class="footer-label" data-i18n="footer.serviceTitle">Collector service</span><p data-i18n="footer.serviceText">Auction examples, prices, and timelines are presented as sample content for preview purposes.</p></div>
       </div>
     </footer>
   </div>

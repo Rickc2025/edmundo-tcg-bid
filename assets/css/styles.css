@@ -80,6 +80,12 @@ h1, h2, h3, strong { color: var(--text); }
   box-shadow: 0 12px 30px rgba(56, 189, 248, 0.22);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
 .site-nav {
   display: flex;
   align-items: center;
@@ -97,6 +103,35 @@ h1, h2, h3, strong { color: var(--text); }
 .site-nav a.active {
   color: var(--text);
   background: rgba(255,255,255,0.06);
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.lang-btn {
+  min-width: 44px;
+  padding: 0.58rem 0.8rem;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+  background: rgba(125, 211, 252, 0.16);
+  color: var(--text);
 }
 
 .nav-toggle {
@@ -156,7 +191,7 @@ h1, h2, h3, strong { color: var(--text); }
 
 .hero-copy h1,
 .page-hero h1 { font-size: clamp(2.3rem, 6vw, 4.5rem); line-height: 1.02; margin: 0.4rem 0 1rem; }
-.page-hero h1 { max-width: 12ch; }
+.page-hero h1 { max-width: 14ch; }
 .hero-copy .lede { max-width: 58ch; font-size: 1.08rem; }
 .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin: 1.6rem 0; }
 .hero-points { padding: 0; list-style: none; display: grid; gap: 0.7rem; }
@@ -314,6 +349,13 @@ textarea { min-height: 140px; resize: vertical; }
 
 .hidden { display: none !important; }
 
+@media (max-width: 1180px) {
+  .nav-actions {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-grid,
   .detail-grid,
@@ -337,6 +379,10 @@ textarea { min-height: 140px; resize: vertical; }
 
 @media (max-width: 860px) {
   .nav-toggle { display: inline-flex; }
+  .nav-actions {
+    align-items: flex-end;
+    margin-left: auto;
+  }
   .site-nav {
     display: none;
     position: absolute;
@@ -362,4 +408,5 @@ textarea { min-height: 140px; resize: vertical; }
   .price-band { grid-template-columns: 1fr; }
   .filter-bar, .results-head { flex-direction: column; align-items: start; }
   .mock-card-art { min-height: 380px; }
+  .lang-switcher { width: 100%; justify-content: center; }
 }
