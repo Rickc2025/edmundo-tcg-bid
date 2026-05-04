@@ -117,6 +117,7 @@ h1, h2, h3, strong { color: var(--text); }
 
 .lang-btn {
   min-width: 44px;
+  min-height: 44px;
   padding: 0.58rem 0.8rem;
   border-radius: 999px;
   border: none;
@@ -126,12 +127,20 @@ h1, h2, h3, strong { color: var(--text); }
   font: inherit;
   font-weight: 700;
   transition: 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lang-btn:hover,
 .lang-btn.active {
   background: rgba(125, 211, 252, 0.16);
   color: var(--text);
+}
+
+.flag-emoji {
+  font-size: 1.15rem;
+  line-height: 1;
 }
 
 .nav-toggle {
