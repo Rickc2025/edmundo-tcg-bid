@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ & How It Works — Edmundo`s TCG BID</title>
+  <meta name="description" content="FAQ and how-it-works page for Edmundo`s TCG BID." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="faq">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span>Macau Pokémon card auctions, done properly</span></div></a>
+        <button class="nav-toggle" aria-label="Open menu">☰</button>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="auctions.html">Auctions</a>
+          <a href="marketplace.html">Marketplace</a>
+          <a href="consign.html">Consign</a>
+          <a class="active" href="faq.html">FAQ</a>
+          <a class="btn btn-sm" href="auction-detail.html">Sample Lot</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="eyebrow">FAQ & operations</div>
+          <h1>How the MVP works</h1>
+          <p>Clean explanations for buyers, sellers, and admins — because confusion is not a feature.</p>
+        </div>
+      </section>
+
+      <section class="section tight-top">
+        <div class="container split-grid faq-layout">
+          <div>
+            <div class="faq-item glass-panel">
+              <h3>How do I bid?</h3>
+              <p>In the real product, you would create an account, pass any required verification, and place bids on eligible lots. In this static MVP, the UI demonstrates the flow without backend bidding logic.</p>
+            </div>
+            <div class="faq-item glass-panel">
+              <h3>How do I pay if I win?</h3>
+              <p>For the MVP, buyers are expected to complete payment by bank transfer within 48 hours. An admin then manually confirms the payment before release, pickup scheduling, or shipping.</p>
+            </div>
+            <div class="faq-item glass-panel">
+              <h3>Can Macau buyers collect in person?</h3>
+              <p>Yes — local pickup is a strong MVP option. It reduces shipping friction, makes manual confirmation easier, and gives the platform an extra trust signal.</p>
+            </div>
+            <div class="faq-item glass-panel">
+              <h3>What happens if a seller submits expensive cards?</h3>
+              <p>High-value cards should go through extra checks: identity verification, photo review, reserve discussion, and potentially provenance evidence for especially sensitive lots.</p>
+            </div>
+            <div class="faq-item glass-panel">
+              <h3>Is the marketplace separate from auctions?</h3>
+              <p>Functionally yes, but they should connect. Unsold auction lots can move to marketplace inventory, and marketplace data can help estimate auction reserves.</p>
+            </div>
+          </div>
+
+          <aside class="glass-panel faq-side">
+            <h3>Launch playbook</h3>
+            <div class="timeline small-timeline">
+              <div class="timeline-item"><strong>Accounts</strong><span>Manual approval for early users is acceptable.</span></div>
+              <div class="timeline-item"><strong>Payments</strong><span>Bank transfer + manual confirmation is enough for MVP.</span></div>
+              <div class="timeline-item"><strong>Fulfillment</strong><span>Pickup and tracked shipping both supported.</span></div>
+              <div class="timeline-item"><strong>Trust</strong><span>Show review status and operational policies clearly.</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="container split-grid">
+          <div>
+            <div class="eyebrow">Recommended next step</div>
+            <h2>If this prototype becomes real</h2>
+            <p>The next layer should be a lightweight backend for authentication, bid events, invoice generation, admin moderation, and manual payment tracking. Keep the clean front end; add boring but essential systems underneath it. Glamour without operations is how marketplaces become apology generators.</p>
+          </div>
+          <aside class="glass-panel">
+            <h3>Must-have production modules</h3>
+            <ul class="check-list">
+              <li>Auth + bidder eligibility</li>
+              <li>Server-side bid validation</li>
+              <li>Order / invoice tracking</li>
+              <li>Manual payment state management</li>
+              <li>Seller payout records</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><strong>Edmundo`s TCG BID</strong><p>FAQ/how-it-works page for the static MVP.</p></div>
+        <div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="auctions.html">Auctions</a><a href="consign.html">Consign</a></div>
+        <div><span class="footer-label">Prototype note</span><p>All policies shown are suggestions for the MVP phase.</p></div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

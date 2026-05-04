@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consign & Sell — Edmundo`s TCG BID</title>
+  <meta name="description" content="Consignment/sell page mockup for Edmundo`s TCG BID." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="consign">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span>Macau Pokémon card auctions, done properly</span></div></a>
+        <button class="nav-toggle" aria-label="Open menu">☰</button>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="auctions.html">Auctions</a>
+          <a href="marketplace.html">Marketplace</a>
+          <a class="active" href="consign.html">Consign</a>
+          <a href="faq.html">FAQ</a>
+          <a class="btn btn-sm" href="auction-detail.html">Sample Lot</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="eyebrow">Seller onboarding</div>
+          <h1>Consign cards with clear expectations.</h1>
+          <p>This page is built to make sellers comfortable fast: what you can submit, how review works, how payouts happen, and which guardrails protect buyers and the platform.</p>
+        </div>
+      </section>
+
+      <section class="section tight-top">
+        <div class="container split-grid">
+          <div class="glass-panel form-panel">
+            <h2>Consignment interest form</h2>
+            <div class="form-grid">
+              <label class="input-label">Name<input type="text" placeholder="Your name" /></label>
+              <label class="input-label">Email / WhatsApp<input type="text" placeholder="Best contact" /></label>
+              <label class="input-label">Card types
+                <select>
+                  <option>Singles</option>
+                  <option>Slabs</option>
+                  <option>Sealed products</option>
+                  <option>Mixed collection</option>
+                </select>
+              </label>
+              <label class="input-label">Estimated value<input type="text" placeholder="MOP 5,000+" /></label>
+              <label class="input-label full">Short description<textarea placeholder="Examples: PSA 10 promos, Japanese sealed, vintage binder pages..."></textarea></label>
+            </div>
+            <button class="btn">Submit prototype form</button>
+            <p class="fine-print">Static mockup only — production version would send this to a database or CRM.</p>
+          </div>
+
+          <aside class="glass-panel">
+            <h3>What sellers want to know</h3>
+            <ul class="check-list">
+              <li>Review before approval to auction or marketplace</li>
+              <li>High-value items may need extra identity proof</li>
+              <li>Clear reserve discussion before listing goes live</li>
+              <li>Payout after buyer payment is confirmed</li>
+              <li>Unsold items can move into marketplace inventory</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split-grid">
+          <div>
+            <div class="eyebrow">How it works</div>
+            <h2>A better seller flow for the MVP</h2>
+            <div class="timeline">
+              <div class="timeline-item"><strong>1. Intake</strong><span>Seller shares photos, estimates, and preferred sale method. Staff decides auction vs marketplace fit.</span></div>
+              <div class="timeline-item"><strong>2. Review</strong><span>Authenticity, condition, and pricing are reviewed manually before publication.</span></div>
+              <div class="timeline-item"><strong>3. Listing</strong><span>Approved cards are published into a scheduled auction or buy-now catalog.</span></div>
+              <div class="timeline-item"><strong>4. Payout</strong><span>Once buyer payment is manually confirmed and the order is released, seller payout is initiated on the agreed schedule.</span></div>
+            </div>
+          </div>
+          <aside class="glass-panel">
+            <h3>Suggested MVP policies</h3>
+            <ul class="check-list">
+              <li>Consignor agreement stored before go-live</li>
+              <li>Basic anti-shill review for linked bidder accounts</li>
+              <li>Photo standards for sealed and raw cards</li>
+              <li>Pickup logging for in-person drop-off and collection</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="container split-grid">
+          <div>
+            <div class="eyebrow">Macau payout reality</div>
+            <h2>Simple payment rails at launch</h2>
+            <p>For launch, seller payouts can stay manual too: bank transfer after buyer funds are confirmed. It is boring, yes. It is also realistic, cheap to operate, and far less likely to explode in week one.</p>
+          </div>
+          <aside class="glass-panel">
+            <h3>Admin control points</h3>
+            <ul class="check-list">
+              <li>Hold payout until payment clears</li>
+              <li>Track proof-of-payment references</li>
+              <li>Flag risky sellers or disputed lots</li>
+              <li>Record all release/payout timestamps</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><strong>Edmundo`s TCG BID</strong><p>Seller/consignment MVP page.</p></div>
+        <div><span class="footer-label">Pages</span><a href="auctions.html">Auctions</a><a href="marketplace.html">Marketplace</a><a href="faq.html">FAQ</a></div>
+        <div><span class="footer-label">Prototype note</span><p>Form is illustrative and does not submit data.</p></div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
