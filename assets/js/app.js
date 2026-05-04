@@ -265,9 +265,29 @@ function getValue(obj, path) {
 }
 
 const html = document.documentElement;
-const page = document.body.dataset.page;
-const storedLang = localStorage.getItem('siteLanguage');
-const defaultLang = translations[storedLang] ? storedLang : 'en';
+const page = document.body?.dataset?.page;
+
+const storage = {
+  get(key) {
+    try {
+      return window.localStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  },
+  set(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch {
+      // Ignore storage failures in restricted browsers/private mode.
+    }
+  }
+};
+
+function getCurrentLang() {
+  const storedLang = storage.get('siteLanguage');
+  return translations[storedLang] ? storedLang : 'en';
+}
 
 function updateMeta(lang) {
   const meta = translations[lang]?.meta?.[page];
@@ -279,7 +299,8 @@ function updateMeta(lang) {
 }
 
 function applyTranslations(lang) {
-  const dict = translations[lang] || translations.en;
+  const nextLang = translations[lang] ? lang : 'en';
+  const dict = translations[nextLang] || translations.en;
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.getAttribute('data-i18n');
@@ -299,18 +320,16 @@ function applyTranslations(lang) {
     if (value !== undefined) el.setAttribute('aria-label', value);
   });
 
-  updateMeta(lang);
-  localStorage.setItem('siteLanguage', lang);
+  updateMeta(nextLang);
+  storage.set('siteLanguage', nextLang);
 
   document.querySelectorAll('.lang-btn').forEach((btn) => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
+    btn.classList.toggle('active', btn.dataset.lang === nextLang);
+    btn.setAttribute('aria-pressed', btn.dataset.lang === nextLang ? 'true' : 'false');
   });
-}
 
-const langButtons = document.querySelectorAll('.lang-btn');
-langButtons.forEach((button) => {
-  button.addEventListener('click', () => applyTranslations(button.dataset.lang));
-});
+  tickCountdowns();
+}
 
 const countdowns = document.querySelectorAll('[data-countdown]');
 const formatCountdown = (targetDate, lang) => {
@@ -324,17 +343,16 @@ const formatCountdown = (targetDate, lang) => {
   return `${String(days).padStart(2, '0')}${labels.day} ${String(hours).padStart(2, '0')}${labels.hour} ${String(minutes).padStart(2, '0')}${labels.minute}`;
 };
 
-const tickCountdowns = () => {
-  const lang = localStorage.getItem('siteLanguage') || defaultLang;
+function tickCountdowns() {
+  const lang = getCurrentLang();
   countdowns.forEach((element) => {
     const target = element.getAttribute('data-countdown');
     if (!target) return;
     element.textContent = formatCountdown(new Date(target), lang);
   });
-};
+}
 
 if (countdowns.length) {
-  tickCountdowns();
   setInterval(tickCountdowns, 60000);
 }
 
@@ -355,5 +373,11 @@ if (filterButtons.length && auctionRows.length) {
   });
 }
 
-applyTranslations(defaultLang);
-tickCountdowns();
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.lang-btn');
+  if (!button) return;
+  event.preventDefault();
+  applyTranslations(button.dataset.lang);
+});
+
+applyTranslations(getCurrentLang());
