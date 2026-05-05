@@ -204,6 +204,7 @@ button, input, select, textarea { font: inherit; }
   background: rgba(211, 170, 74, 0.16);
 }
 .flag-emoji { font-size: 1.12rem; line-height: 1; }
+.flag-icon { width: 18px; height: 18px; display: block; border-radius: 50%; }
 .nav-toggle {
   display: none;
   border: none;

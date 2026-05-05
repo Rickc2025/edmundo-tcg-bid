@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="United Kingdom flag">
+  <rect width="64" height="64" rx="32" fill="#1F4AA8"/>
+  <clipPath id="c">
+    <rect width="64" height="64" rx="32"/>
+  </clipPath>
+  <g clip-path="url(#c)">
+    <path d="M-6 6L6-6l64 64-12 12zM58-6L70 6 6 70-6 58z" fill="#fff" stroke="#fff" stroke-width="8"/>
+    <path d="M-6 6L6-6l64 64-12 12zM58-6L70 6 6 70-6 58z" fill="none" stroke="#C8102E" stroke-width="4"/>
+    <path d="M28 0h8v64h-8zM0 28h64v8H0z" fill="#fff"/>
+    <path d="M30 0h4v64h-4zM0 30h64v4H0z" fill="#C8102E"/>
+  </g>
+</svg>
