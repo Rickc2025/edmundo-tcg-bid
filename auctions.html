@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,31 +7,66 @@
   <meta name="description" content="Explore live, upcoming, and closed Pokémon card auctions from Edmundo`s TCG BID." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body data-page="auctions">
   <div class="site-shell">
+    <div class="utility-bar">
+      <div class="container utility-wrap">
+        <div class="utility-note" data-i18n="util.note">Private collector lots · Trusted Macau service</div>
+        <div class="utility-links">
+          <a href="login.html" data-i18n="util.login">Login / Register</a>
+          <a href="marketplace.html" data-i18n="util.cart">View Cart</a>
+          <a href="#" data-i18n="util.orders">View Orders</a>
+          <a href="#" data-i18n="util.wishlist">Wishlist</a>
+        </div>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span></div></a>
-        <button class="nav-toggle" aria-label="Open menu" data-i18n-aria-label="nav.openMenu">☰</button>
-        <div class="nav-actions">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">E</span>
+          <div>
+            <strong>Edmundo`s TCG BID</strong>
+            <span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span>
+          </div>
+        </a>
+
+        <div class="header-right">
           <nav class="site-nav">
+            <div class="mobile-drawer-extra"><div class="drawer-note" data-i18n="drawer.note">Explore</div></div>
             <a href="index.html" data-i18n="nav.home">Home</a>
-            <a class="active" href="auctions.html" data-i18n="nav.auctions">Auctions</a>
+            <a class="active" href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
             <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
-            <a href="consign.html" data-i18n="nav.consign">Consign</a>
+            <a href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
             <a href="faq.html" data-i18n="nav.faq">FAQ</a>
-            <a class="btn btn-sm" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+            <a class="btn btn-sm nav-cta" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+            <div class="mobile-drawer-extra">
+              <div class="mobile-quick-links">
+                <a href="login.html" data-i18n="drawer.account">Login / Register</a>
+                <a href="marketplace.html" data-i18n="drawer.cart">Cart</a>
+                <a href="#" data-i18n="drawer.wishlist">Wishlist</a>
+              </div>
+              <div class="lang-switcher mobile-lang" aria-label="Language switcher">
+                <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
+                <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
+                <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
+              </div>
+            </div>
           </nav>
-          <div class="lang-switcher" aria-label="Language switcher">
+
+          <div class="lang-switcher desktop-lang" aria-label="Language switcher">
             <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
             <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
             <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
           </div>
+
+          <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n-aria-label="nav.openMenu">☰</button>
         </div>
       </div>
+      <div class="nav-backdrop"></div>
     </header>
 
     <main>
@@ -44,88 +79,171 @@
       </section>
 
       <section class="section tight-top">
-        <div class="container filter-bar glass-panel">
-          <div class="filter-pills">
-            <button class="filter-chip active" data-filter="all" data-i18n="filters.all">All</button>
-            <button class="filter-chip" data-filter="live" data-i18n="filters.live">Live</button>
-            <button class="filter-chip" data-filter="upcoming" data-i18n="filters.upcoming">Upcoming</button>
-            <button class="filter-chip" data-filter="closed" data-i18n="filters.closed">Closed</button>
+        <div class="container schedule-layout">
+          <aside class="schedule-sidebar">
+            <div class="calendar-card">
+              <div class="calendar-head">
+                <span>May 2026</span>
+                <span>◂ ▸</span>
+              </div>
+              <div class="mini-calendar">
+                <div class="calendar-grid">
+                  <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                  <span></span><span></span><span></span><span></span><span>1</span><span>2</span><span class="active">3</span>
+                  <span>4</span><span class="active">5</span><span>6</span><span>7</span><span>8</span><span>9</span><span class="active">10</span>
+                  <span>11</span><span>12</span><span>13</span><span class="active">14</span><span>15</span><span>16</span><span>17</span>
+                  <span class="active">18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+                </div>
+              </div>
+            </div>
+            <div class="filter-list-card" style="margin-top:1rem;">
+              <div class="footer-heading">Month filter</div>
+              <div class="month-filter-list">
+                <a href="#" class="active">May 2026</a>
+                <a href="#">June 2026</a>
+                <a href="#">July 2026</a>
+                <a href="#">August 2026</a>
+                <a href="#">Reset Filter</a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="panel" style="padding:1.5rem;">
+            <div class="results-topline" style="margin-bottom:1rem;">
+              <div>
+                <div class="eyebrow">Online auctions</div>
+                <h2 class="section-title-serif" style="font-size:clamp(2.2rem,4vw,3.6rem);margin-top:0.35rem;">Upcoming Online Auctions</h2>
+              </div>
+              <div class="schedule-sort">
+                <select>
+                  <option>Date: Soonest first</option>
+                  <option>Date: Latest first</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="schedule-list" id="auctionList">
+              <article class="schedule-item auction-row" data-category="live">
+                <div class="schedule-date">
+                  <span>May</span>
+                  <strong>10</strong>
+                  <small>Sun · Macau</small>
+                </div>
+                <div class="schedule-main auction-row-main">
+                  <div class="auction-meta"><span class="pill pill-live" data-i18n="filters.live">Live</span><span data-i18n="auctions.row1.time">Ends 10 May · 9:00 PM</span></div>
+                  <h2 data-i18n="auctions.row1.title">Gold Star Showcase</h2>
+                  <p data-i18n="auctions.row1.text">Vintage grails, low-pop slabs, Crystal-era highlights, and standout Japanese collector pieces.</p>
+                  <div class="schedule-meta">
+                    <span>Viewing dates: 08 May – 10 May</span>
+                    <span>Location: Online / Macau support</span>
+                    <span>Office: Peninsula collector handoff by arrangement</span>
+                  </div>
+                  <div class="auction-tags"><span data-i18n="auctions.row1.tag1">38 lots</span><span data-i18n="auctions.row1.tag2">Reserve on select lots</span><span data-i18n="auctions.row1.tag3">Invoice confirmation after close</span></div>
+                </div>
+                <div class="schedule-side auction-row-side">
+                  <strong data-countdown="2026-05-10T21:00:00+08:00">05d 11h 22m</strong>
+                  <span data-i18n="auctions.row1.side">Featured estimate: MOP 42,000</span>
+                  <a href="auction-detail.html" class="btn btn-sm" data-i18n="auctions.row1.btn">Browse sale</a>
+                </div>
+              </article>
+
+              <article class="schedule-item auction-row" data-category="live">
+                <div class="schedule-date">
+                  <span>May</span>
+                  <strong>11</strong>
+                  <small>Mon · Macau</small>
+                </div>
+                <div class="schedule-main auction-row-main">
+                  <div class="auction-meta"><span class="pill pill-live" data-i18n="filters.live">Live</span><span data-i18n="auctions.row2.time">Ends 11 May · 8:30 PM</span></div>
+                  <h2 data-i18n="auctions.row2.title">Modern Alt Art Night</h2>
+                  <p data-i18n="auctions.row2.text">A strong modern chase-card mix for collectors who like premium hits, clean presentation, and a little self-control.</p>
+                  <div class="schedule-meta">
+                    <span>Viewing dates: 09 May – 11 May</span>
+                    <span>Location: Online bidding</span>
+                    <span>Office: Macau pickup available</span>
+                  </div>
+                  <div class="auction-tags"><span data-i18n="auctions.row2.tag1">52 lots</span><span data-i18n="auctions.row2.tag2">No buyer account fee</span><span data-i18n="auctions.row2.tag3">Macau pickup available</span></div>
+                </div>
+                <div class="schedule-side auction-row-side">
+                  <strong data-countdown="2026-05-11T20:30:00+08:00">06d 10h 52m</strong>
+                  <span data-i18n="auctions.row2.side">Top live bid: MOP 6,200</span>
+                  <a href="auction-detail.html" class="btn btn-sm" data-i18n="auctions.row2.btn">Browse sale</a>
+                </div>
+              </article>
+
+              <article class="schedule-item auction-row" data-category="upcoming">
+                <div class="schedule-date">
+                  <span>May</span>
+                  <strong>14</strong>
+                  <small>Thu · Macau</small>
+                </div>
+                <div class="schedule-main auction-row-main">
+                  <div class="auction-meta"><span class="pill" data-i18n="filters.upcoming">Upcoming</span><span data-i18n="auctions.row3.time">Starts 14 May · 8:00 PM</span></div>
+                  <h2 data-i18n="auctions.row3.title">Pokémon 151 Sealed Drop</h2>
+                  <p data-i18n="auctions.row3.text">Booster boxes, promo packs, accessory bundles, and a handful of sealed cases for serious sealed collectors.</p>
+                  <div class="schedule-meta">
+                    <span>Viewing dates: 12 May – 14 May</span>
+                    <span>Location: Online preview</span>
+                    <span>Office: Seller intake confirmed</span>
+                  </div>
+                  <div class="auction-tags"><span data-i18n="auctions.row3.tag1">24 lots</span><span data-i18n="auctions.row3.tag2">Seller vetted</span><span data-i18n="auctions.row3.tag3">Condition disclosure required</span></div>
+                </div>
+                <div class="schedule-side auction-row-side">
+                  <strong data-i18n="auctions.row3.sideTitle">Preview open</strong>
+                  <span data-i18n="auctions.row3.side">Expected range: MOP 320 – 9,500</span>
+                  <a href="marketplace.html" class="btn btn-sm btn-ghost" data-i18n="auctions.row3.btn">Compare prices</a>
+                </div>
+              </article>
+
+              <article class="schedule-item auction-row" data-category="upcoming">
+                <div class="schedule-date">
+                  <span>May</span>
+                  <strong>18</strong>
+                  <small>Mon · Macau</small>
+                </div>
+                <div class="schedule-main auction-row-main">
+                  <div class="auction-meta"><span class="pill" data-i18n="filters.upcoming">Upcoming</span><span data-i18n="auctions.row4.time">Starts 18 May · 7:30 PM</span></div>
+                  <h2 data-i18n="auctions.row4.title">PSA Vault Select</h2>
+                  <p data-i18n="auctions.row4.text">A premium slab-focused event with extra review for high-value lots and carefully managed consignor onboarding.</p>
+                  <div class="schedule-meta">
+                    <span>Viewing dates: 16 May – 18 May</span>
+                    <span>Location: Online / collector service desk</span>
+                    <span>Office: Seller intake closes in 3 days</span>
+                  </div>
+                  <div class="auction-tags"><span data-i18n="auctions.row4.tag1">31 lots</span><span data-i18n="auctions.row4.tag2">Identity check for high bids</span><span data-i18n="auctions.row4.tag3">Insured delivery option</span></div>
+                </div>
+                <div class="schedule-side auction-row-side">
+                  <strong data-i18n="auctions.row4.sideTitle">Catalog pending</strong>
+                  <span data-i18n="auctions.row4.side">Seller intake closes in 3 days</span>
+                  <a href="consign.html" class="btn btn-sm" data-i18n="auctions.row4.btn">Register</a>
+                </div>
+              </article>
+
+              <article class="schedule-item auction-row" data-category="closed">
+                <div class="schedule-date">
+                  <span>May</span>
+                  <strong>03</strong>
+                  <small>Sun · Macau</small>
+                </div>
+                <div class="schedule-main auction-row-main">
+                  <div class="auction-meta"><span class="pill" data-i18n="filters.closed">Closed</span><span data-i18n="auctions.row5.time">Ended 03 May</span></div>
+                  <h2 data-i18n="auctions.row5.title">Trainer Gallery Sprint</h2>
+                  <p data-i18n="auctions.row5.text">A fast midweek event centred on affordable chase cards, textured full arts, and sealed accessories.</p>
+                  <div class="schedule-meta">
+                    <span>Viewing dates: 01 May – 03 May</span>
+                    <span>Location: Online results archive</span>
+                    <span>Office: 0 disputes pending review</span>
+                  </div>
+                  <div class="auction-tags"><span data-i18n="auctions.row5.tag1">44 lots</span><span data-i18n="auctions.row5.tag2">Sell-through 81%</span><span data-i18n="auctions.row5.tag3">0 disputes</span></div>
+                </div>
+                <div class="schedule-side auction-row-side">
+                  <strong>MOP 57,900 GMV</strong>
+                  <span data-i18n="auctions.row5.side">Average close: MOP 1,316</span>
+                  <a href="auction-detail.html" class="btn btn-sm btn-ghost" data-i18n="auctions.row5.btn">View result</a>
+                </div>
+              </article>
+            </div>
           </div>
-          <div class="muted" data-i18n="auctions.filterNote">Preview the current schedule and featured sale highlights.</div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container auction-list" id="auctionList">
-          <article class="auction-row glass-panel" data-category="live">
-            <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill pill-live" data-i18n="filters.live">Live</span><span data-i18n="auctions.row1.time">Ends 10 May · 9:00 PM</span></div>
-              <h2 data-i18n="auctions.row1.title">Gold Star Showcase</h2>
-              <p data-i18n="auctions.row1.text">Vintage grails, low-pop slabs, Crystal-era highlights, and standout Japanese collector pieces.</p>
-              <div class="auction-tags"><span data-i18n="auctions.row1.tag1">38 lots</span><span data-i18n="auctions.row1.tag2">Reserve on select lots</span><span data-i18n="auctions.row1.tag3">Invoice confirmation after close</span></div>
-            </div>
-            <div class="auction-row-side">
-              <strong data-countdown="2026-05-10T21:00:00+08:00">05d 11h 22m</strong>
-              <span data-i18n="auctions.row1.side">Featured estimate: MOP 42,000</span>
-              <a href="auction-detail.html" class="btn btn-sm" data-i18n="auctions.row1.btn">View lot</a>
-            </div>
-          </article>
-
-          <article class="auction-row glass-panel" data-category="live">
-            <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill pill-live" data-i18n="filters.live">Live</span><span data-i18n="auctions.row2.time">Ends 11 May · 8:30 PM</span></div>
-              <h2 data-i18n="auctions.row2.title">Modern Alt Art Night</h2>
-              <p data-i18n="auctions.row2.text">A strong modern chase-card mix for collectors who like premium hits, clean presentation, and a little self-control.</p>
-              <div class="auction-tags"><span data-i18n="auctions.row2.tag1">52 lots</span><span data-i18n="auctions.row2.tag2">No buyer account fee</span><span data-i18n="auctions.row2.tag3">Macau pickup available</span></div>
-            </div>
-            <div class="auction-row-side">
-              <strong data-countdown="2026-05-11T20:30:00+08:00">06d 10h 52m</strong>
-              <span data-i18n="auctions.row2.side">Top live bid: MOP 6,200</span>
-              <a href="auction-detail.html" class="btn btn-sm btn-ghost" data-i18n="auctions.row2.btn">Featured lots</a>
-            </div>
-          </article>
-
-          <article class="auction-row glass-panel" data-category="upcoming">
-            <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill" data-i18n="filters.upcoming">Upcoming</span><span data-i18n="auctions.row3.time">Starts 14 May · 8:00 PM</span></div>
-              <h2 data-i18n="auctions.row3.title">Pokémon 151 Sealed Drop</h2>
-              <p data-i18n="auctions.row3.text">Booster boxes, promo packs, accessory bundles, and a handful of sealed cases for serious sealed collectors.</p>
-              <div class="auction-tags"><span data-i18n="auctions.row3.tag1">24 lots</span><span data-i18n="auctions.row3.tag2">Seller vetted</span><span data-i18n="auctions.row3.tag3">Condition disclosure required</span></div>
-            </div>
-            <div class="auction-row-side">
-              <strong data-i18n="auctions.row3.sideTitle">Preview open</strong>
-              <span data-i18n="auctions.row3.side">Expected range: MOP 320 – 9,500</span>
-              <a href="marketplace.html" class="btn btn-sm btn-ghost" data-i18n="auctions.row3.btn">Compare prices</a>
-            </div>
-          </article>
-
-          <article class="auction-row glass-panel" data-category="upcoming">
-            <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill" data-i18n="filters.upcoming">Upcoming</span><span data-i18n="auctions.row4.time">Starts 18 May · 7:30 PM</span></div>
-              <h2 data-i18n="auctions.row4.title">PSA Vault Select</h2>
-              <p data-i18n="auctions.row4.text">A premium slab-focused event with extra review for high-value lots and carefully managed consignor onboarding.</p>
-              <div class="auction-tags"><span data-i18n="auctions.row4.tag1">31 lots</span><span data-i18n="auctions.row4.tag2">Identity check for high bids</span><span data-i18n="auctions.row4.tag3">Insured delivery option</span></div>
-            </div>
-            <div class="auction-row-side">
-              <strong data-i18n="auctions.row4.sideTitle">Catalog pending</strong>
-              <span data-i18n="auctions.row4.side">Seller intake closes in 3 days</span>
-              <a href="consign.html" class="btn btn-sm" data-i18n="auctions.row4.btn">Submit cards</a>
-            </div>
-          </article>
-
-          <article class="auction-row glass-panel" data-category="closed">
-            <div class="auction-row-main">
-              <div class="auction-meta"><span class="pill" data-i18n="filters.closed">Closed</span><span data-i18n="auctions.row5.time">Ended 03 May</span></div>
-              <h2 data-i18n="auctions.row5.title">Trainer Gallery Sprint</h2>
-              <p data-i18n="auctions.row5.text">A fast midweek event centred on affordable chase cards, textured full arts, and sealed accessories.</p>
-              <div class="auction-tags"><span data-i18n="auctions.row5.tag1">44 lots</span><span data-i18n="auctions.row5.tag2">Sell-through 81%</span><span data-i18n="auctions.row5.tag3">0 disputes</span></div>
-            </div>
-            <div class="auction-row-side">
-              <strong>MOP 57,900 GMV</strong>
-              <span data-i18n="auctions.row5.side">Average close: MOP 1,316</span>
-              <a href="#" class="btn btn-sm btn-ghost" data-i18n="auctions.row5.btn">View results</a>
-            </div>
-          </article>
         </div>
       </section>
 
@@ -133,10 +251,10 @@
         <div class="container split-grid">
           <div>
             <div class="eyebrow" data-i18n="auctions.ops.eyebrow">Auction operations</div>
-            <h2 data-i18n="auctions.ops.title">Clear processes support confident bidding</h2>
+            <h2 class="section-title-serif" data-i18n="auctions.ops.title">Clear processes support confident bidding</h2>
             <p data-i18n="auctions.ops.text">Great auctions are not just about the cards. They also depend on clear timing, visible buyer expectations, payment follow-up, and reliable handoff after a sale closes.</p>
           </div>
-          <aside class="glass-panel">
+          <aside class="panel" style="padding:1.35rem;">
             <h3 data-i18n="auctions.ops.listTitle">Service checklist</h3>
             <ul class="check-list">
               <li data-i18n="auctions.ops.1">Flag reserve lots clearly</li>
@@ -150,14 +268,54 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div><strong>Edmundo`s TCG BID</strong><p data-i18n="footer.blurb">Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.</p></div>
-        <div><span class="footer-label" data-i18n="footer.explore">Explore</span><a href="index.html" data-i18n="nav.home">Home</a><a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a><a href="faq.html" data-i18n="nav.faq">FAQ</a></div>
-        <div><span class="footer-label" data-i18n="footer.serviceTitle">Collector service</span><p data-i18n="footer.serviceText">Auction examples, prices, and timelines are presented as sample content for preview purposes.</p></div>
+      <div class="container footer-main footer-grid">
+        <div class="footer-brand">
+          <strong>Edmundo`s TCG BID</strong>
+          <p data-i18n="footer.blurb">A polished Macau-facing preview for premium Pokémon card auctions, marketplace listings, and consignment services.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="Facebook">◉</a>
+            <a href="#" aria-label="WhatsApp">◌</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.pages">Informations</span>
+          <div class="footer-links">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.navigate">Help</span>
+          <div class="footer-links">
+            <a href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
+            <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a href="login.html" data-i18n="util.login">Login / Register</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.serviceTitle">Contact Us</span>
+          <ul class="contact-list">
+            <li data-i18n="footer.address">Macau Peninsula · collector pickup by appointment</li>
+            <li data-i18n="footer.phone">+853 6200 0000</li>
+            <li data-i18n="footer.email">hello@edmundostcgbid.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div data-i18n="footer.copyright">© 2026 Edmundo`s TCG BID. All rights reserved.</div>
+        <div class="payment-strip">
+          <span class="payment-pill">Visa</span>
+          <span class="payment-pill">Mastercard</span>
+          <span class="payment-pill">Bank</span>
+          <span class="payment-pill">MOP</span>
+        </div>
       </div>
     </footer>
+
+    <a class="whatsapp-float" href="#" aria-label="WhatsApp">✆</a>
   </div>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
-

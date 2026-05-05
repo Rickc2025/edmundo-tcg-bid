@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,45 +7,80 @@
   <meta name="description" content="Browse marketplace listings for singles, slabs, sealed products, and collector bundles." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body data-page="marketplace">
   <div class="site-shell">
+    <div class="utility-bar">
+      <div class="container utility-wrap">
+        <div class="utility-note" data-i18n="util.note">Private collector lots · Trusted Macau service</div>
+        <div class="utility-links">
+          <a href="login.html" data-i18n="util.login">Login / Register</a>
+          <a href="#" data-i18n="util.cart">View Cart</a>
+          <a href="#" data-i18n="util.orders">View Orders</a>
+          <a href="#" data-i18n="util.wishlist">Wishlist</a>
+        </div>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span></div></a>
-        <button class="nav-toggle" aria-label="Open menu" data-i18n-aria-label="nav.openMenu">☰</button>
-        <div class="nav-actions">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">E</span>
+          <div>
+            <strong>Edmundo`s TCG BID</strong>
+            <span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span>
+          </div>
+        </a>
+
+        <div class="header-right">
           <nav class="site-nav">
+            <div class="mobile-drawer-extra"><div class="drawer-note" data-i18n="drawer.note">Explore</div></div>
             <a href="index.html" data-i18n="nav.home">Home</a>
-            <a href="auctions.html" data-i18n="nav.auctions">Auctions</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
             <a class="active" href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
-            <a href="consign.html" data-i18n="nav.consign">Consign</a>
+            <a href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
             <a href="faq.html" data-i18n="nav.faq">FAQ</a>
-            <a class="btn btn-sm" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+            <a class="btn btn-sm nav-cta" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+            <div class="mobile-drawer-extra">
+              <div class="mobile-quick-links">
+                <a href="login.html" data-i18n="drawer.account">Login / Register</a>
+                <a href="#" data-i18n="drawer.cart">Cart</a>
+                <a href="#" data-i18n="drawer.wishlist">Wishlist</a>
+              </div>
+              <div class="lang-switcher mobile-lang" aria-label="Language switcher">
+                <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
+                <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
+                <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
+              </div>
+            </div>
           </nav>
-          <div class="lang-switcher" aria-label="Language switcher">
+
+          <div class="lang-switcher desktop-lang" aria-label="Language switcher">
             <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
             <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
             <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
           </div>
+
+          <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n-aria-label="nav.openMenu">☰</button>
         </div>
       </div>
+      <div class="nav-backdrop"></div>
     </header>
 
     <main>
-      <section class="page-hero">
+      <section class="page-hero page-title-center">
         <div class="container">
           <div class="eyebrow" data-i18n="market.hero.eyebrow">Buy-now catalog</div>
-          <h1 data-i18n="market.hero.title">Marketplace search without the clutter.</h1>
+          <h1 class="catalog-title" data-i18n="market.results.title">Products</h1>
           <p data-i18n="market.hero.text">Explore singles, slabs, sealed products, and collection lots in a cleaner browsing experience designed for collectors.</p>
         </div>
       </section>
 
       <section class="section tight-top">
         <div class="container marketplace-layout">
-          <aside class="glass-panel sidebar-filters">
+          <aside class="sidebar-filters panel" style="padding:1.3rem;">
             <h3 data-i18n="market.filters.title">Search filters</h3>
             <label class="input-label"><span data-i18n="market.filters.keyword">Keyword</span><input type="text" placeholder="Pikachu, Umbreon, 151..." data-i18n-placeholder="market.filters.keywordPlaceholder" /></label>
             <label class="input-label"><span data-i18n="market.filters.category">Category</span>
@@ -71,11 +106,8 @@
           </aside>
 
           <div>
-            <div class="results-head glass-panel">
-              <div>
-                <strong data-i18n="market.results.count">24 results</strong>
-                <p class="muted" data-i18n="market.results.note">Best match for premium Pokémon inventory in Macau</p>
-              </div>
+            <div class="market-toolbar">
+              <button class="btn outline-filter-btn btn-sm" data-i18n="market.filters.minimal">Filter</button>
               <div class="sort-row">
                 <span data-i18n="market.results.sort">Sort by</span>
                 <select>
@@ -86,48 +118,78 @@
               </div>
             </div>
 
+            <div class="results-head panel">
+              <div>
+                <strong data-i18n="market.results.count">24 results</strong>
+                <p class="muted" data-i18n="market.results.note">Best match for premium Pokémon inventory in Macau</p>
+              </div>
+            </div>
+
             <div class="market-grid">
-              <article class="product-card glass-panel">
-                <span class="pill">PSA 10</span>
-                <h3>Pikachu Precious Collector Promo</h3>
-                <p data-i18n="market.card1.text">Japanese promo · certification verified manually</p>
-                <strong>MOP 8,800</strong>
-                <small data-i18n="market.card1.small">Local pickup or insured shipping</small>
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-card-body">
+                  <div class="product-top-line"><span class="pill">PSA 10</span></div>
+                  <h3>Pikachu Precious Collector Promo</h3>
+                  <p data-i18n="market.card1.text">Japanese promo · certification verified manually</p>
+                  <strong>MOP 8,800</strong>
+                  <small data-i18n="market.card1.small">Local pickup or insured shipping</small>
+                </div>
               </article>
-              <article class="product-card glass-panel">
-                <span class="pill" data-i18n="common.rawNm">Raw NM</span>
-                <h3>Umbreon VMAX Alt Art</h3>
-                <p data-i18n="market.card2.text">Detailed front and back condition photos included</p>
-                <strong>MOP 4,600</strong>
-                <small data-i18n="market.card2.small">Seller approved for marketplace listing</small>
+
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-card-body">
+                  <div class="product-top-line"><span class="pill" data-i18n="common.rawNm">Raw NM</span></div>
+                  <h3>Umbreon VMAX Alt Art</h3>
+                  <p data-i18n="market.card2.text">Detailed front and back condition photos included</p>
+                  <strong>MOP 4,600</strong>
+                  <small data-i18n="market.card2.small">Seller approved for marketplace listing</small>
+                </div>
               </article>
-              <article class="product-card glass-panel">
-                <span class="pill" data-i18n="common.sealed">Sealed</span>
-                <h3>151 Booster Box</h3>
-                <p data-i18n="market.card3.text">Japanese sealed stock · shrink verified on intake</p>
-                <strong>MOP 980</strong>
-                <small data-i18n="market.card3.small">Quantity available: 6</small>
+
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-card-body">
+                  <div class="product-top-line"><span class="pill" data-i18n="common.sealed">Sealed</span></div>
+                  <h3>151 Booster Box</h3>
+                  <p data-i18n="market.card3.text">Japanese sealed stock · shrink verified on intake</p>
+                  <strong>MOP 980</strong>
+                  <small data-i18n="market.card3.small">Quantity available: 6</small>
+                </div>
               </article>
-              <article class="product-card glass-panel">
-                <span class="pill" data-i18n="market.card4.pill">Collection lot</span>
-                <h3 data-i18n="market.card4.title">EX Era binder starter bundle</h3>
-                <p data-i18n="market.card4.text">Mixed holo and raw pages aimed at nostalgia buyers</p>
-                <strong>MOP 2,200</strong>
-                <small data-i18n="market.card4.small">Additional review before checkout release</small>
+
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-card-body">
+                  <div class="product-top-line"><span class="pill" data-i18n="market.card4.pill">Collection lot</span></div>
+                  <h3 data-i18n="market.card4.title">EX Era binder starter bundle</h3>
+                  <p data-i18n="market.card4.text">Mixed holo and raw pages aimed at nostalgia buyers</p>
+                  <strong>MOP 2,200</strong>
+                  <small data-i18n="market.card4.small">Additional review before checkout release</small>
+                </div>
               </article>
-              <article class="product-card glass-panel">
-                <span class="pill">PSA 9</span>
-                <h3>Charizard V Alt Art</h3>
-                <p data-i18n="market.card5.text">A modern staple slab with strong eye appeal</p>
-                <strong>MOP 1,950</strong>
-                <small data-i18n="market.card5.small">Bank transfer accepted after invoice</small>
+
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-card-body">
+                  <div class="product-top-line"><span class="pill">PSA 9</span></div>
+                  <h3>Charizard V Alt Art</h3>
+                  <p data-i18n="market.card5.text">A modern staple slab with strong eye appeal</p>
+                  <strong>MOP 1,950</strong>
+                  <small data-i18n="market.card5.small">Bank transfer accepted after invoice</small>
+                </div>
               </article>
-              <article class="product-card glass-panel">
-                <span class="pill" data-i18n="market.card6.pill">Accessory</span>
-                <h3 data-i18n="market.card6.title">Pokémon Center deck sleeves set</h3>
-                <p data-i18n="market.card6.text">Sealed accessories for casual add-on orders</p>
-                <strong>MOP 180</strong>
-                <small data-i18n="market.card6.small">Can be added to marketplace invoices</small>
+
+              <article class="product-card">
+                <div class="product-image"></div>
+                <div class="product-card-body">
+                  <div class="product-top-line"><span class="pill" data-i18n="market.card6.pill">Accessory</span></div>
+                  <h3 data-i18n="market.card6.title">Pokémon Center deck sleeves set</h3>
+                  <p data-i18n="market.card6.text">Sealed accessories for casual add-on orders</p>
+                  <strong>MOP 180</strong>
+                  <small data-i18n="market.card6.small">Can be added to marketplace invoices</small>
+                </div>
               </article>
             </div>
           </div>
@@ -138,10 +200,10 @@
         <div class="container split-grid">
           <div>
             <div class="eyebrow" data-i18n="market.ops.eyebrow">Marketplace operations</div>
-            <h2 data-i18n="market.ops.title">A steady catalog complements the auction calendar</h2>
+            <h2 class="section-title-serif" data-i18n="market.ops.title">A steady catalog complements the auction calendar</h2>
             <p data-i18n="market.ops.text">Auctions create excitement. Marketplace listings create consistency. Together they support repeat buying, better price discovery, and a more complete collector experience.</p>
           </div>
-          <aside class="glass-panel">
+          <aside class="panel" style="padding:1.35rem;">
             <h3 data-i18n="market.ops.listTitle">Trust cues shown here</h3>
             <ul class="check-list">
               <li data-i18n="market.ops.1">Condition disclosure callouts</li>
@@ -155,14 +217,54 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div><strong>Edmundo`s TCG BID</strong><p data-i18n="footer.blurb">Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.</p></div>
-        <div><span class="footer-label" data-i18n="footer.pages">Pages</span><a href="auctions.html" data-i18n="nav.auctions">Auctions</a><a href="consign.html" data-i18n="nav.consign">Consign</a><a href="faq.html" data-i18n="nav.faq">FAQ</a></div>
-        <div><span class="footer-label" data-i18n="footer.serviceTitle">Collector service</span><p data-i18n="footer.serviceText">Auction examples, prices, and timelines are presented as sample content for preview purposes.</p></div>
+      <div class="container footer-main footer-grid">
+        <div class="footer-brand">
+          <strong>Edmundo`s TCG BID</strong>
+          <p data-i18n="footer.blurb">A polished Macau-facing preview for premium Pokémon card auctions, marketplace listings, and consignment services.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="Facebook">◉</a>
+            <a href="#" aria-label="WhatsApp">◌</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.pages">Informations</span>
+          <div class="footer-links">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.navigate">Help</span>
+          <div class="footer-links">
+            <a href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
+            <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a href="login.html" data-i18n="util.login">Login / Register</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.serviceTitle">Contact Us</span>
+          <ul class="contact-list">
+            <li data-i18n="footer.address">Macau Peninsula · collector pickup by appointment</li>
+            <li data-i18n="footer.phone">+853 6200 0000</li>
+            <li data-i18n="footer.email">hello@edmundostcgbid.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div data-i18n="footer.copyright">© 2026 Edmundo`s TCG BID. All rights reserved.</div>
+        <div class="payment-strip">
+          <span class="payment-pill">Visa</span>
+          <span class="payment-pill">Mastercard</span>
+          <span class="payment-pill">Bank</span>
+          <span class="payment-pill">MOP</span>
+        </div>
       </div>
     </footer>
+
+    <a class="whatsapp-float" href="#" aria-label="WhatsApp">✆</a>
   </div>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
-

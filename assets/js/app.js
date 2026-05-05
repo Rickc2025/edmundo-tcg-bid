@@ -1,11 +1,30 @@
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
+const navBackdrop = document.querySelector('.nav-backdrop');
+const body = document.body;
 
-if (navToggle && siteNav) {
-  navToggle.addEventListener('click', () => {
-    siteNav.classList.toggle('open');
-  });
+function setNavOpen(isOpen) {
+  if (!siteNav) return;
+  body?.classList.toggle('nav-open', isOpen);
+  navToggle?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
+
+navToggle?.addEventListener('click', () => {
+  const isOpen = !body?.classList.contains('nav-open');
+  setNavOpen(isOpen);
+});
+
+navBackdrop?.addEventListener('click', () => setNavOpen(false));
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') setNavOpen(false);
+});
+
+siteNav?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 860) setNavOpen(false);
+  });
+});
 
 const translations = {
   en: {
@@ -37,63 +56,76 @@ const translations = {
     },
     countdown: { day: 'd', hour: 'h', minute: 'm', closed: 'Closed' },
     brand: { tagline: 'Macau Pokémon card auctions, done properly' },
-    nav: { home: 'Home', auctions: 'Auctions', marketplace: 'Marketplace', consign: 'Consign', faq: 'FAQ', sampleLot: 'Featured Lot', openMenu: 'Open menu' },
+    util: {
+      note: 'Private collector lots · Trusted Macau service',
+      login: 'Login / Register',
+      cart: 'View Cart',
+      orders: 'View Orders',
+      wishlist: 'Wishlist'
+    },
+    drawer: { note: 'Explore', account: 'Login / Register', cart: 'Cart', wishlist: 'Wishlist' },
+    nav: { home: 'Home', auctions: 'Upcoming Schedule', marketplace: 'Marketplace', consign: 'Consign & Sell', faq: 'FAQ', sampleLot: 'Featured Lot', openMenu: 'Open menu', closeMenu: 'Close menu' },
     status: { liveNow: 'Live now', open: 'Open', upcoming: 'Upcoming', closed: 'Archived' },
     filters: { all: 'All', live: 'Live', upcoming: 'Upcoming', closed: 'Closed' },
     common: { closesIn: 'Closes in', sealed: 'Sealed', rawNm: 'Raw NM' },
     footer: {
-      blurb: 'Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.',
-      pages: 'Pages', explore: 'Explore', navigate: 'Navigate', serviceTitle: 'Collector service',
-      serviceText: 'Auction examples, prices, and timelines are presented as sample content for preview purposes.'
+      blurb: 'A polished Macau-facing preview for premium Pokémon card auctions, marketplace listings, and consignment services.',
+      pages: 'Informations', explore: 'Explore', navigate: 'Help', serviceTitle: 'Contact Us',
+      serviceText: 'Auction examples, prices, and timelines are presented as sample content for preview purposes.',
+      address: 'Macau Peninsula · collector pickup by appointment',
+      phone: '+853 6200 0000',
+      email: 'hello@edmundostcgbid.com',
+      copyright: '© 2026 Edmundo`s TCG BID. All rights reserved.'
     },
     home: {
       hero: {
         eyebrow: 'Macau · Hong Kong · Curated TCG Events',
-        title: 'Premium Pokémon card auctions with a cleaner collector experience.',
-        lede: 'Discover weekly auctions, carefully presented featured lots, a buy-now marketplace, and seller consignments designed around trust, clarity, and local service.',
-        primary: 'Browse live auctions', secondary: 'Consign your cards',
-        point1: 'Weekly auction drops with countdowns, reserve notes, and featured estimates',
-        point2: 'Buy-now marketplace listings for singles, slabs, sealed products, and collection lots',
-        point3: 'Manual payment confirmation and local pickup support for a smooth collector journey'
+        title: 'A cleaner premium look for buying, selling, and bidding on Pokémon cards.',
+        lede: 'Built around the collector journey: upcoming auctions, carefully presented lots, marketplace highlights, and dependable local service.',
+        primary: 'Browse upcoming sales', secondary: 'Consign your cards',
+        point1: 'Editorial white layout inspired by tcgbid.hk but localized for Macau',
+        point2: 'MOP pricing, local contact flow, and future WhatsApp-first support',
+        point3: 'Auction, marketplace, and consignment pages designed as one cohesive system'
       },
       heroCard: {
         kicker: 'Weekly Signature Auction', title: 'Gold Star Showcase', text: '38 curated lots · Pokémon only · seller verification required',
         startingFrom: 'Starting from', topEstimate: 'Top estimated lot', button: 'View featured lot'
       },
       stats: { 1: 'Verified collector accounts ready to bid', 2: 'Payment window after an auction closes', 3: 'Primary service region for pickup and delivery', '4strong': 'Manual review', 4: 'Every high-value consignment is checked by staff' },
-      experience: { eyebrow: 'Featured experience', title: 'Built around how collectors actually browse and buy', link: 'See how it works →' },
+      experience: { eyebrow: 'Featured lots', title: 'Current auction highlights', link: 'View all auctions →' },
       features: {
-        '1title': 'Live auctions', '1text': 'Timed lots, current bid visibility, reserve labels, and seller notes presented with clarity.',
-        '2title': 'Marketplace browsing', '2text': 'Shop sealed product, raw singles, graded cards, and curated collection bundles.',
-        '3title': 'Consignment intake', '3text': 'Onboard sellers with photo guidance, pricing review, and clear payout expectations.',
-        '4title': 'Trust-first service', '4text': 'Manual payment verification, pickup scheduling, dispute windows, and careful lot review.'
+        '1title': 'Live auctions', '1text': 'Timed lots, reserve notes, specialist support, and cleaner lot presentation.',
+        '2title': 'Marketplace browsing', '2text': 'Shop premium singles, slabs, sealed products, and curated collector bundles.',
+        '3title': 'Consignment intake', '3text': 'Guide sellers with orderly intake, review, and payout expectations.',
+        '4title': 'Trusted local service', '4text': 'Manual payment checks, pickup scheduling, and careful release controls.'
       },
       slate: {
-        eyebrow: 'Current auction slate', title: 'Curated weekly drops', link: 'View all auctions →',
+        eyebrow: 'Auction schedule', title: 'Curated weekly drops', link: 'View all auctions →',
         card1time: 'Ends Sun 9:00 PM', card1title: 'Gold Star Showcase', card1text: 'High-grade grails, trophy-era singles, and standout Japanese promos.', card1li1: '38 lots', card1li2: 'Buyer premium from 8%', card1li3: 'Invoice issued after close', card1btn: 'Open lots',
         card2time: 'Starts Wed 8:00 PM', card2title: 'Modern Alt Art Night', card2text: 'Chase cards from Sword & Shield through Scarlet & Violet eras.', card2li1: '52 lots', card2li2: 'Macau local handoff supported', card2li3: 'Seller identity verified', card2btn: 'Preview schedule',
         card3time: 'Closed last week', card3title: 'PSA Vault Select', card3text: 'Competitive slabs, vintage holos, and low-pop collector pieces.', card3li1: 'Sell-through: 84%', card3li2: 'Average close: MOP 1,960', card3li3: 'Disputes pending review: 0', card3btn: 'See results'
       },
       payments: {
-        eyebrow: 'Payment flow', title: 'Simple, clear, and easy to trust', text: 'When an auction ends, the buyer receives a clear invoice summary, completes payment by local transfer, and receives pickup or shipping instructions after confirmation.',
-        step1title: '1. Win the lot', step1text: 'The invoice shows the lot total, buyer premium, shipping or pickup option, and payment deadline.',
-        step2title: '2. Complete payment', step2text: 'The buyer uploads a bank transfer slip or shares a transfer reference for confirmation.',
-        step3title: '3. Receive release details', step3text: 'Once payment is confirmed, staff arranges pickup details or shipping fulfilment.'
+        eyebrow: 'How to participate', title: 'Simple steps before you place your first bid', text: 'Keep the same clean tcgbid-style participation flow, but localized for Edmundo`s business and Macau collector expectations.',
+        step1title: '1. Create account', step1text: 'Register as a collector and keep your contact details ready for approval and payment follow-up.',
+        step2title: '2. Register to bid', step2text: 'Join the relevant sale, complete any account checks, and review the auction terms before bidding.',
+        step3title: '3. Add payment method', step3text: 'Prepare payment proof or bank transfer details so staff can confirm your winning order quickly.'
       },
       trust: { title: 'Trust & service controls', 1: 'Seller review before lots go live', 2: 'Extra identity checks for high-value lots when needed', 3: 'Manual review for suspicious bidding patterns', 4: 'Pickup or delivery only after payment confirmation', 5: 'Clear issue reporting window on each order' },
       market: {
-        eyebrow: 'Marketplace snapshot', title: 'Highlights from the buy-now catalog', link: 'Open marketplace →',
+        eyebrow: 'Latest news', title: 'Collector updates and launch notes', link: 'View more →',
         card1text: 'Japanese · graded · low-pop appeal', card2text: 'Japanese shrink-wrapped stock', card3text: 'Verified condition photos included'
-      }
+      },
+      partners: { eyebrow: 'Our valued partners', title: 'Trusted by collectors, consignors, and supporting services' }
     },
     auctions: {
       hero: { eyebrow: 'Auction schedule', title: 'Weekly auctions with a clear overview.', text: 'Browse live, upcoming, and completed events with the details collectors actually want to see at a glance.' },
       filterNote: 'Preview the current schedule and featured sale highlights.',
-      row1: { time: 'Ends 10 May · 9:00 PM', title: 'Gold Star Showcase', text: 'Vintage grails, low-pop slabs, Crystal-era highlights, and standout Japanese collector pieces.', tag1: '38 lots', tag2: 'Reserve on select lots', tag3: 'Invoice confirmation after close', side: 'Featured estimate: MOP 42,000', btn: 'View lot' },
-      row2: { time: 'Ends 11 May · 8:30 PM', title: 'Modern Alt Art Night', text: 'A strong modern chase-card mix for collectors who like premium hits, clean presentation, and a little self-control.', tag1: '52 lots', tag2: 'No buyer account fee', tag3: 'Macau pickup available', side: 'Top live bid: MOP 6,200', btn: 'Featured lots' },
+      row1: { time: 'Ends 10 May · 9:00 PM', title: 'Gold Star Showcase', text: 'Vintage grails, low-pop slabs, Crystal-era highlights, and standout Japanese collector pieces.', tag1: '38 lots', tag2: 'Reserve on select lots', tag3: 'Invoice confirmation after close', side: 'Featured estimate: MOP 42,000', btn: 'Browse sale' },
+      row2: { time: 'Ends 11 May · 8:30 PM', title: 'Modern Alt Art Night', text: 'A strong modern chase-card mix for collectors who like premium hits, clean presentation, and a little self-control.', tag1: '52 lots', tag2: 'No buyer account fee', tag3: 'Macau pickup available', side: 'Top live bid: MOP 6,200', btn: 'Browse sale' },
       row3: { time: 'Starts 14 May · 8:00 PM', title: 'Pokémon 151 Sealed Drop', text: 'Booster boxes, promo packs, accessory bundles, and a handful of sealed cases for serious sealed collectors.', tag1: '24 lots', tag2: 'Seller vetted', tag3: 'Condition disclosure required', sideTitle: 'Preview open', side: 'Expected range: MOP 320 – 9,500', btn: 'Compare prices' },
-      row4: { time: 'Starts 18 May · 7:30 PM', title: 'PSA Vault Select', text: 'A premium slab-focused event with extra review for high-value lots and carefully managed consignor onboarding.', tag1: '31 lots', tag2: 'Identity check for high bids', tag3: 'Insured delivery option', sideTitle: 'Catalog pending', side: 'Seller intake closes in 3 days', btn: 'Submit cards' },
-      row5: { time: 'Ended 03 May', title: 'Trainer Gallery Sprint', text: 'A fast midweek event centred on affordable chase cards, textured full arts, and sealed accessories.', tag1: '44 lots', tag2: 'Sell-through 81%', tag3: '0 disputes', side: 'Average close: MOP 1,316', btn: 'View results' },
+      row4: { time: 'Starts 18 May · 7:30 PM', title: 'PSA Vault Select', text: 'A premium slab-focused event with extra review for high-value lots and carefully managed consignor onboarding.', tag1: '31 lots', tag2: 'Identity check for high bids', tag3: 'Insured delivery option', sideTitle: 'Catalog pending', side: 'Seller intake closes in 3 days', btn: 'Register' },
+      row5: { time: 'Ended 03 May', title: 'Trainer Gallery Sprint', text: 'A fast midweek event centred on affordable chase cards, textured full arts, and sealed accessories.', tag1: '44 lots', tag2: 'Sell-through 81%', tag3: '0 disputes', side: 'Average close: MOP 1,316', btn: 'View result' },
       ops: { eyebrow: 'Auction operations', title: 'Clear processes support confident bidding', text: 'Great auctions are not just about the cards. They also depend on clear timing, visible buyer expectations, payment follow-up, and reliable handoff after a sale closes.', listTitle: 'Service checklist', 1: 'Flag reserve lots clearly', 2: 'Review suspicious buyer activity before invoice release', 3: 'Store proof-of-payment references', 4: 'Log pickup and shipping handoff times' }
     },
     detail: {
@@ -105,12 +137,14 @@ const translations = {
       desc: { eyebrow: 'Description', title: 'Collector-facing presentation that feels premium', text1: 'Important signals are surfaced quickly: current bid, next step, auction timing, trust controls, and what happens after a winning bid.', text2: 'This style of listing leaves room for provenance, certification checks, detailed imaging, and shipping origin without overwhelming the buyer.' },
       history: { title: 'Bid history', '1name': 'Bidder A12', '2name': 'Bidder H03', '3name': 'Bidder K77', '4name': 'Bidder A12' },
       payment: { eyebrow: 'Payment flow', title: 'What happens after you win', '1title': 'Invoice issued', '1text': 'The buyer receives a summary with the lot amount, buyer premium, and shipping or pickup option.', '2title': 'Bank transfer made', '2text': 'The buyer completes a Macau or Hong Kong bank transfer and submits proof within 48 hours.', '3title': 'Confirmation completed', '3text': 'After staff confirms payment, pickup scheduling or dispatch can proceed.' },
-      ops: { title: 'Service notes', 1: 'Local pickup can be offered for Macau buyers', 2: 'Shipping fees are confirmed before dispatch', 3: 'Orders stay on hold until staff confirmation', 4: 'Issue reporting periods should remain visible' }
+      ops: { title: 'Service notes', 1: 'Local pickup can be offered for Macau buyers', 2: 'Shipping fees are confirmed before dispatch', 3: 'Orders stay on hold until staff confirmation', 4: 'Issue reporting periods should remain visible' },
+      metrics: { title: 'Market snapshot', a: 'Auction estimate', b: 'Comparable sales', c: 'Bid activity', d: 'Collector demand' },
+      gate: { title: 'Recent sales history', body: 'Unlock comparable sales, specialist notes, and additional market data after login.', cta: 'Login / Register to view' }
     },
     market: {
       hero: { eyebrow: 'Buy-now catalog', title: 'Marketplace search without the clutter.', text: 'Explore singles, slabs, sealed products, and collection lots in a cleaner browsing experience designed for collectors.' },
-      filters: { title: 'Search filters', keyword: 'Keyword', keywordPlaceholder: 'Pikachu, Umbreon, 151...', category: 'Category', categoryAll: 'All categories', categorySingles: 'Singles', categoryGraded: 'Graded', categorySealed: 'Sealed', categoryAccessories: 'Accessories', condition: 'Condition', conditionAny: 'Any condition', conditionRaw: 'Raw NM', price: 'Price range', pricePlaceholder: 'MOP 500 - 5,000', button: 'Apply filters', note: 'Search controls are shown here as a browsing preview.' },
-      results: { count: '24 results', note: 'Best match for premium Pokémon inventory in Macau', sort: 'Sort by', sortFeatured: 'Featured', sortPrice: 'Price: Low to high', sortNewest: 'Newest listed' },
+      filters: { title: 'Search filters', keyword: 'Keyword', keywordPlaceholder: 'Pikachu, Umbreon, 151...', category: 'Category', categoryAll: 'All categories', categorySingles: 'Singles', categoryGraded: 'Graded', categorySealed: 'Sealed', categoryAccessories: 'Accessories', condition: 'Condition', conditionAny: 'Any condition', conditionRaw: 'Raw NM', price: 'Price range', pricePlaceholder: 'MOP 500 - 5,000', button: 'Apply filters', note: 'Search controls are shown here as a browsing preview.', minimal: 'Filter' },
+      results: { count: '24 results', note: 'Best match for premium Pokémon inventory in Macau', sort: 'Sort by', sortFeatured: 'Featured', sortPrice: 'Price: Low to high', sortNewest: 'Newest listed', title: 'Products' },
       card1: { text: 'Japanese promo · certification verified manually', small: 'Local pickup or insured shipping' },
       card2: { text: 'Detailed front and back condition photos included', small: 'Seller approved for marketplace listing' },
       card3: { text: 'Japanese sealed stock · shrink verified on intake', small: 'Quantity available: 6' },
@@ -148,39 +182,42 @@ const translations = {
     },
     countdown: { day: '日', hour: '時', minute: '分', closed: '已結束' },
     brand: { tagline: '澳門 Pokémon 卡拍賣，做得更到位' },
-    nav: { home: '首頁', auctions: '拍賣', marketplace: '現貨市場', consign: '寄賣', faq: 'FAQ', sampleLot: '精選拍品', openMenu: '開啟選單' },
+    util: { note: '私人收藏拍品 · 澳門可信賴服務', login: '登入 / 註冊', cart: '購物車', orders: '訂單', wishlist: '收藏清單' },
+    drawer: { note: '導覽', account: '登入 / 註冊', cart: '購物車', wishlist: '收藏清單' },
+    nav: { home: '首頁', auctions: '拍賣時間表', marketplace: '現貨市場', consign: '寄賣與出售', faq: 'FAQ', sampleLot: '精選拍品', openMenu: '開啟選單', closeMenu: '關閉選單' },
     status: { liveNow: '現正進行', open: '開放中', upcoming: '即將開始', closed: '已存檔' },
     filters: { all: '全部', live: '進行中', upcoming: '即將開始', closed: '已結束' },
     common: { closesIn: '距離結束', sealed: '密封', rawNm: '原卡 NM' },
-    footer: { blurb: '為澳門及香港收藏家提供高端 Pokémon 卡拍賣、現貨市場與寄賣服務。', pages: '頁面', explore: '瀏覽', navigate: '導覽', serviceTitle: '收藏家服務', serviceText: '拍賣示例、價格與時間僅作展示預覽用途。' },
+    footer: { blurb: '為澳門及香港收藏家提供高質感 Pokémon 卡拍賣、現貨市場與寄賣預覽站。', pages: '資訊', explore: '瀏覽', navigate: '幫助', serviceTitle: '聯絡我們', serviceText: '拍賣示例、價格與時間僅作展示預覽用途。', address: '澳門半島 · 可預約收藏家交收', phone: '+853 6200 0000', email: 'hello@edmundostcgbid.com', copyright: '© 2026 Edmundo`s TCG BID. 版權所有。' },
     home: {
-      hero: { eyebrow: '澳門 · 香港 · 精選 TCG 活動', title: '高端 Pokémon 卡拍賣，帶來更清爽的收藏體驗。', lede: '探索每週拍賣、重點拍品、現貨市場與寄賣服務，整體設計以信任、清晰度與本地化服務為核心。', primary: '瀏覽進行中拍賣', secondary: '寄賣你的卡', point1: '每週拍賣上架，附倒數、底價提示與估價焦點', point2: '現貨市場涵蓋單卡、評級卡、密封產品與收藏組合', point3: '支援人工付款確認與本地交收，流程更順手' },
+      hero: { eyebrow: '澳門 · 香港 · 精選 TCG 活動', title: '以更清爽高端的方式展示 Pokémon 卡買賣與拍賣。', lede: '圍繞收藏家旅程打造：即將舉行的拍賣、重點拍品、現貨市場焦點，以及可靠本地服務。', primary: '瀏覽即將開始拍賣', secondary: '寄賣你的卡', point1: '延續 tcgbid.hk 的乾淨白色編排，但本地化為澳門版本', point2: '使用 MOP 標價、澳門聯絡方式，之後可加入 WhatsApp 支援', point3: '拍賣、現貨與寄賣頁面保持一致的整體視覺' },
       heroCard: { kicker: '每週精選拍賣', title: 'Gold Star Showcase', text: '38 件精選拍品 · 只限 Pokémon · 賣家需通過驗證', startingFrom: '起拍價', topEstimate: '最高估價拍品', button: '查看精選拍品' },
       stats: { 1: '已驗證收藏家帳戶可參與競投', 2: '拍賣結束後付款時限', 3: '主要服務區域涵蓋澳門 / 香港', '4strong': '人工審核', 4: '所有高價寄賣拍品均由團隊檢查' },
-      experience: { eyebrow: '重點體驗', title: '圍繞收藏家真實瀏覽與購買習慣而設', link: '查看運作方式 →' },
-      features: { '1title': '即時拍賣', '1text': '拍品倒數、目前出價、底價標示與賣家備註清晰呈現。', '2title': '現貨瀏覽', '2text': '選購密封產品、原卡、評級卡與精選收藏組合。', '3title': '寄賣提交', '3text': '提供相片指引、定價審核與清晰的派款安排。', '4title': '以信任為先的服務', '4text': '人工付款確認、自取安排、爭議時限及拍品審核更周全。' },
-      slate: { eyebrow: '目前拍賣檔期', title: '每週精選上架', link: '查看所有拍賣 →', card1time: '週日晚上 9:00 結束', card1title: 'Gold Star Showcase', card1text: '高分珍品、獎盃年代單卡與亮眼日版宣傳卡。', card1li1: '38 件拍品', card1li2: '買家佣金由 8% 起', card1li3: '結拍後發出帳單', card1btn: '查看拍品', card2time: '週三晚上 8:00 開始', card2title: 'Modern Alt Art Night', card2text: '收錄 Sword & Shield 至 Scarlet & Violet 時代熱門卡。', card2li1: '52 件拍品', card2li2: '支援澳門本地交收', card2li3: '賣家身份已驗證', card2btn: '預覽檔期', card3time: '上週已結束', card3title: 'PSA Vault Select', card3text: '競爭力評級卡、復古閃卡與低人口收藏精品。', card3li1: '成交率：84%', card3li2: '平均成交：MOP 1,960', card3li3: '待審爭議：0', card3btn: '查看結果' },
-      payments: { eyebrow: '付款流程', title: '簡單、清楚、值得信賴', text: '拍賣結束後，買家會收到清晰帳單摘要，完成本地轉帳後，再安排自取或寄送。', step1title: '1. 贏得拍品', step1text: '帳單會列明拍品總額、買家佣金、寄送或自取選項，以及付款期限。', step2title: '2. 完成付款', step2text: '買家上傳轉帳憑證或提供轉帳參考編號以便確認。', step3title: '3. 收取交付安排', step3text: '確認付款後，團隊會安排自取詳情或寄送。' },
+      experience: { eyebrow: '重點拍品', title: '目前拍賣焦點', link: '查看所有拍賣 →' },
+      features: { '1title': '即時拍賣', '1text': '拍品倒數、底價提示、專員支援與更清晰的拍品呈現。', '2title': '現貨瀏覽', '2text': '選購高端單卡、評級卡、密封產品與精選收藏組合。', '3title': '寄賣提交', '3text': '讓賣家清楚了解收件、審核與派款安排。', '4title': '可靠本地服務', '4text': '人工付款確認、自取安排與放行控制更清楚。' },
+      slate: { eyebrow: '拍賣時間表', title: '每週精選上架', link: '查看所有拍賣 →', card1time: '週日晚上 9:00 結束', card1title: 'Gold Star Showcase', card1text: '高分珍品、獎盃年代單卡與亮眼日版宣傳卡。', card1li1: '38 件拍品', card1li2: '買家佣金由 8% 起', card1li3: '結拍後發出帳單', card1btn: '查看拍品', card2time: '週三晚上 8:00 開始', card2title: 'Modern Alt Art Night', card2text: '收錄 Sword & Shield 至 Scarlet & Violet 時代熱門卡。', card2li1: '52 件拍品', card2li2: '支援澳門本地交收', card2li3: '賣家身份已驗證', card2btn: '預覽檔期', card3time: '上週已結束', card3title: 'PSA Vault Select', card3text: '競爭力評級卡、復古閃卡與低人口收藏精品。', card3li1: '成交率：84%', card3li2: '平均成交：MOP 1,960', card3li3: '待審爭議：0', card3btn: '查看結果' },
+      payments: { eyebrow: '如何參與', title: '出價前的簡單步驟', text: '保留 tcgbid 風格的乾淨參與流程，但本地化成 Edmundo 在澳門的服務方式。', step1title: '1. 建立帳戶', step1text: '先註冊收藏家帳戶，並準備好聯絡資料以便審核及付款跟進。', step2title: '2. 登記競投', step2text: '加入相關拍賣、完成所需檢查，並在出價前閱讀拍賣條款。', step3title: '3. 準備付款方式', step3text: '預先準備轉帳資料或付款證明，讓中標後能更快完成確認。' },
       trust: { title: '信任與服務機制', 1: '拍品上架前先審核賣家', 2: '高價拍品可按需要進一步核實身份', 3: '可疑競投行為會進行人工檢查', 4: '確認付款後才安排交收或寄送', 5: '每張訂單清楚列明問題申報時限' },
-      market: { eyebrow: '現貨市場精選', title: '即買目錄精選', link: '進入現貨市場 →', card1text: '日版 · 評級卡 · 低人口吸引力', card2text: '日版原封存貨', card3text: '附已驗證品相相片' }
+      market: { eyebrow: '最新消息', title: '收藏家更新與平台近況', link: '查看更多 →', card1text: '日版 · 評級卡 · 低人口吸引力', card2text: '日版原封存貨', card3text: '附已驗證品相相片' },
+      partners: { eyebrow: '合作夥伴', title: '收藏家、寄賣方與支援服務共同信任' }
     },
     auctions: {
       hero: { eyebrow: '拍賣時間表', title: '每週拍賣，一眼看清。', text: '快速瀏覽進行中、即將開始及已結束的活動，重點資訊一目了然。' },
       filterNote: '預覽目前檔期與精選拍賣焦點。',
-      row1: { time: '5 月 10 日晚上 9:00 結束', title: 'Gold Star Showcase', text: '復古珍品、低人口評級卡、Crystal 年代亮點與日版收藏好貨。', tag1: '38 件拍品', tag2: '部分拍品設底價', tag3: '結拍後確認帳單', side: '焦點估價：MOP 42,000', btn: '查看拍品' },
-      row2: { time: '5 月 11 日晚上 8:30 結束', title: 'Modern Alt Art Night', text: '精選現代熱門卡，適合追求高質感與乾淨展示的收藏家。', tag1: '52 件拍品', tag2: '買家帳戶免登記費', tag3: '可於澳門自取', side: '目前最高出價：MOP 6,200', btn: '精選拍品' },
+      row1: { time: '5 月 10 日晚上 9:00 結束', title: 'Gold Star Showcase', text: '復古珍品、低人口評級卡、Crystal 年代亮點與日版收藏好貨。', tag1: '38 件拍品', tag2: '部分拍品設底價', tag3: '結拍後確認帳單', side: '焦點估價：MOP 42,000', btn: '瀏覽拍賣' },
+      row2: { time: '5 月 11 日晚上 8:30 結束', title: 'Modern Alt Art Night', text: '精選現代熱門卡，適合追求高質感與乾淨展示的收藏家。', tag1: '52 件拍品', tag2: '買家帳戶免登記費', tag3: '可於澳門自取', side: '目前最高出價：MOP 6,200', btn: '瀏覽拍賣' },
       row3: { time: '5 月 14 日晚上 8:00 開始', title: 'Pokémon 151 Sealed Drop', text: '補充包盒、宣傳包、配件組與少量密封箱，適合密封收藏玩家。', tag1: '24 件拍品', tag2: '賣家已審核', tag3: '須提供品相說明', sideTitle: '可預覽', side: '預計區間：MOP 320 – 9,500', btn: '比較價格' },
-      row4: { time: '5 月 18 日晚上 7:30 開始', title: 'PSA Vault Select', text: '以高端評級卡為主的專場，高價拍品審核更嚴謹。', tag1: '31 件拍品', tag2: '高額出價需核實身份', tag3: '可選保價寄送', sideTitle: '目錄待公布', side: '寄賣收件 3 日後截止', btn: '提交卡片' },
+      row4: { time: '5 月 18 日晚上 7:30 開始', title: 'PSA Vault Select', text: '以高端評級卡為主的專場，高價拍品審核更嚴謹。', tag1: '31 件拍品', tag2: '高額出價需核實身份', tag3: '可選保價寄送', sideTitle: '目錄待公布', side: '寄賣收件 3 日後截止', btn: '登記' },
       row5: { time: '5 月 3 日已結束', title: 'Trainer Gallery Sprint', text: '中段快速專場，主打親民追卡、紋理全圖與密封配件。', tag1: '44 件拍品', tag2: '成交率 81%', tag3: '0 宗爭議', side: '平均成交：MOP 1,316', btn: '查看結果' },
       ops: { eyebrow: '拍賣運作', title: '清晰流程讓競投更安心', text: '好拍賣不只靠好卡，還需要明確時間、清楚買家預期、付款跟進與可靠交收安排。', listTitle: '服務檢查清單', 1: '清楚標示設底價拍品', 2: '帳單發出前檢查可疑買家活動', 3: '保存付款證明參考資料', 4: '記錄自取與寄送交接時間' }
     },
     detail: {
-      breadcrumbLot: '拍品 07', mock: { label: '精選評級卡預覽', sub: '收藏展示示意圖' }, live: '競投中', meta: '拍品 07 · Gold Star Showcase', title: '2016 Pokémon Center Promo — Pikachu Poncho-Wearing Rayquaza PSA 10', lede: '重點拍品以更清晰層級、信任資訊與買家最在意的內容呈現。', bid: { current: '目前出價', next: '下口最低出價', estimate: '估價' }, cta: { primary: '了解中標流程', secondary: '閱讀買家 FAQ' }, fine: '此頁所示拍賣活動內容僅作展示預覽。', info: { lotTitle: '拍品資料', 1: '類別：評級單卡', 2: '語言：日文', 3: '認證資料會隨正式拍品頁面展示', 4: '底價：不公開顯示', trustTitle: '信任說明' }, trust: { 1: '上架前已核實賣家身份', 2: '相片已由團隊審閱', 3: '大幅跳價會作人工檢查', 4: '確認付款後才可放行' }, desc: { eyebrow: '拍品說明', title: '面向收藏家的高質感展示方式', text1: '目前出價、下一口、拍賣時間、信任機制與中標後流程都會優先顯示。', text2: '這種頁面風格亦保留空間放置來源說明、認證查核、細節相片與出貨地資訊。' }, history: { title: '出價紀錄', '1name': '買家 A12', '2name': '買家 H03', '3name': '買家 K77', '4name': '買家 A12' }, payment: { eyebrow: '付款流程', title: '中標後會發生什麼', '1title': '發出帳單', '1text': '買家會收到拍品金額、買家佣金與寄送／自取選項摘要。', '2title': '完成轉帳', '2text': '買家需於 48 小時內完成澳門或香港銀行轉帳並提交證明。', '3title': '完成確認', '3text': '團隊確認付款後，方可安排自取或寄送。' }, ops: { title: '服務備註', 1: '澳門買家可安排本地自取', 2: '寄送費用會於出貨前確認', 3: '訂單會於確認前維持保留狀態', 4: '問題申報時限應清楚展示' }
+      breadcrumbLot: '拍品 07', mock: { label: '精選評級卡預覽', sub: '收藏展示示意圖' }, live: '競投中', meta: '拍品 07 · Gold Star Showcase', title: '2016 Pokémon Center Promo — Pikachu Poncho-Wearing Rayquaza PSA 10', lede: '重點拍品以更清晰層級、信任資訊與買家最在意的內容呈現。', bid: { current: '目前出價', next: '下口最低出價', estimate: '估價' }, cta: { primary: '了解中標流程', secondary: '閱讀買家 FAQ' }, fine: '此頁所示拍賣活動內容僅作展示預覽。', info: { lotTitle: '拍品資料', 1: '類別：評級單卡', 2: '語言：日文', 3: '認證資料會隨正式拍品頁面展示', 4: '底價：不公開顯示', trustTitle: '信任說明' }, trust: { 1: '上架前已核實賣家身份', 2: '相片已由團隊審閱', 3: '大幅跳價會作人工檢查', 4: '確認付款後才可放行' }, desc: { eyebrow: '拍品說明', title: '面向收藏家的高質感展示方式', text1: '目前出價、下一口、拍賣時間、信任機制與中標後流程都會優先顯示。', text2: '這種頁面風格亦保留空間放置來源說明、認證查核、細節相片與出貨地資訊。' }, history: { title: '出價紀錄', '1name': '買家 A12', '2name': '買家 H03', '3name': '買家 K77', '4name': '買家 A12' }, payment: { eyebrow: '付款流程', title: '中標後會發生什麼', '1title': '發出帳單', '1text': '買家會收到拍品金額、買家佣金與寄送／自取選項摘要。', '2title': '完成轉帳', '2text': '買家需於 48 小時內完成澳門或香港銀行轉帳並提交證明。', '3title': '完成確認', '3text': '團隊確認付款後，方可安排自取或寄送。' }, ops: { title: '服務備註', 1: '澳門買家可安排本地自取', 2: '寄送費用會於出貨前確認', 3: '訂單會於確認前維持保留狀態', 4: '問題申報時限應清楚展示' }, metrics: { title: '市場概況', a: '拍賣估價', b: '對比成交', c: '出價活躍度', d: '收藏需求' }, gate: { title: '近期成交紀錄', body: '登入後可查看對比成交、專員備註與更多市場資料。', cta: '登入 / 註冊查看' }
     },
     market: {
       hero: { eyebrow: '即買目錄', title: '現貨搜尋，更清爽。', text: '以更乾淨的瀏覽體驗探索單卡、評級卡、密封產品與收藏組合。' },
-      filters: { title: '搜尋篩選', keyword: '關鍵字', keywordPlaceholder: 'Pikachu、Umbreon、151...', category: '分類', categoryAll: '全部分類', categorySingles: '單卡', categoryGraded: '評級卡', categorySealed: '密封產品', categoryAccessories: '配件', condition: '品相', conditionAny: '任何品相', conditionRaw: '原卡 NM', price: '價格範圍', pricePlaceholder: 'MOP 500 - 5,000', button: '套用篩選', note: '此處展示搜尋操作介面預覽。' },
-      results: { count: '24 個結果', note: '澳門高端 Pokémon 庫存的最佳匹配', sort: '排序', sortFeatured: '精選', sortPrice: '價格：由低至高', sortNewest: '最新上架' },
+      filters: { title: '搜尋篩選', keyword: '關鍵字', keywordPlaceholder: 'Pikachu、Umbreon、151...', category: '分類', categoryAll: '全部分類', categorySingles: '單卡', categoryGraded: '評級卡', categorySealed: '密封產品', categoryAccessories: '配件', condition: '品相', conditionAny: '任何品相', conditionRaw: '原卡 NM', price: '價格範圍', pricePlaceholder: 'MOP 500 - 5,000', button: '套用篩選', note: '此處展示搜尋操作介面預覽。', minimal: '篩選' },
+      results: { count: '24 個結果', note: '澳門高端 Pokémon 庫存的最佳匹配', sort: '排序', sortFeatured: '精選', sortPrice: '價格：由低至高', sortNewest: '最新上架', title: 'Products' },
       card1: { text: '日版宣傳卡 · 認證資料已人工核實', small: '可本地自取或保價寄送' }, card2: { text: '附正背面詳細品相相片', small: '賣家已獲現貨市場上架批准' }, card3: { text: '日版密封存貨 · 入庫時已確認封膜', small: '可供數量：6' }, card4: { pill: '收藏組合', title: 'EX Era 相簿入門組合', text: '混合閃卡與原卡頁面，適合懷舊收藏家', small: '結帳前會作額外審核' }, card5: { text: '現代熱門評級卡，觀感出色', small: '發出帳單後可接受銀行轉帳' }, card6: { pill: '配件', title: 'Pokémon Center 卡套套裝', text: '適合加購的密封配件', small: '可加入現貨市場帳單' },
       ops: { eyebrow: '現貨市場運作', title: '穩定目錄能補足拍賣節奏', text: '拍賣帶來話題與熱度，現貨市場帶來穩定成交，兩者結合可改善價格判斷與回購體驗。', listTitle: '此頁展示的信任提示', 1: '品相說明提示', 2: '賣家審核標示', 3: '人工付款確認預期', 4: '自取與保價寄送選項' }
     },
@@ -209,38 +246,41 @@ const translations = {
     },
     countdown: { day: '天', hour: '时', minute: '分', closed: '已结束' },
     brand: { tagline: '澳门 Pokémon 卡拍卖，做得更到位' },
-    nav: { home: '首页', auctions: '拍卖', marketplace: '现货市场', consign: '寄卖', faq: 'FAQ', sampleLot: '精选拍品', openMenu: '打开菜单' },
+    util: { note: '私人收藏拍品 · 澳门可信赖服务', login: '登录 / 注册', cart: '购物车', orders: '订单', wishlist: '收藏清单' },
+    drawer: { note: '导航', account: '登录 / 注册', cart: '购物车', wishlist: '收藏清单' },
+    nav: { home: '首页', auctions: '拍卖时间表', marketplace: '现货市场', consign: '寄卖与出售', faq: 'FAQ', sampleLot: '精选拍品', openMenu: '打开菜单', closeMenu: '关闭菜单' },
     status: { liveNow: '正在进行', open: '开放中', upcoming: '即将开始', closed: '已归档' },
     filters: { all: '全部', live: '进行中', upcoming: '即将开始', closed: '已结束' },
     common: { closesIn: '距离结束', sealed: '密封', rawNm: '原卡 NM' },
-    footer: { blurb: '为澳门及香港收藏家提供高端 Pokémon 卡拍卖、现货市场与寄卖服务。', pages: '页面', explore: '浏览', navigate: '导航', serviceTitle: '收藏家服务', serviceText: '拍卖示例、价格与时间仅供展示预览。' },
+    footer: { blurb: '为澳门及香港收藏家提供高质感 Pokémon 卡拍卖、现货市场与寄卖预览站。', pages: '信息', explore: '浏览', navigate: '帮助', serviceTitle: '联系我们', serviceText: '拍卖示例、价格与时间仅供展示预览。', address: '澳门半岛 · 可预约收藏家交收', phone: '+853 6200 0000', email: 'hello@edmundostcgbid.com', copyright: '© 2026 Edmundo`s TCG BID. 保留所有权利。' },
     home: {
-      hero: { eyebrow: '澳门 · 香港 · 精选 TCG 活动', title: '高端 Pokémon 卡拍卖，带来更清爽的收藏体验。', lede: '探索每周拍卖、重点拍品、现货市场与寄卖服务，整体围绕信任、清晰度与本地化服务而设计。', primary: '浏览进行中拍卖', secondary: '寄卖你的卡', point1: '每周拍卖上架，附带倒计时、底价提示与估价焦点', point2: '现货市场涵盖单卡、评级卡、密封产品与收藏组合', point3: '支持人工付款确认与本地交收，流程更顺畅' },
+      hero: { eyebrow: '澳门 · 香港 · 精选 TCG 活动', title: '以更清爽高端的方式展示 Pokémon 卡买卖与拍卖。', lede: '围绕收藏家旅程打造：即将举行的拍卖、重点拍品、现货市场焦点，以及可靠本地服务。', primary: '浏览即将开始拍卖', secondary: '寄卖你的卡', point1: '延续 tcgbid.hk 的干净白色编排，但本地化为澳门版本', point2: '使用 MOP 标价、澳门联系方式，之后可加入 WhatsApp 支持', point3: '拍卖、现货与寄卖页面保持一致的整体视觉' },
       heroCard: { kicker: '每周精选拍卖', title: 'Gold Star Showcase', text: '38 件精选拍品 · 仅限 Pokémon · 卖家需通过验证', startingFrom: '起拍价', topEstimate: '最高估价拍品', button: '查看精选拍品' },
       stats: { 1: '已验证收藏家账号可参与竞投', 2: '拍卖结束后的付款时限', 3: '主要服务区域覆盖澳门 / 香港', '4strong': '人工审核', 4: '所有高价寄卖拍品均由团队检查' },
-      experience: { eyebrow: '重点体验', title: '围绕收藏家真实浏览与购买习惯打造', link: '查看运作方式 →' },
-      features: { '1title': '实时拍卖', '1text': '拍品倒计时、当前出价、底价标示与卖家备注清晰呈现。', '2title': '现货浏览', '2text': '选购密封产品、原卡、评级卡与精选收藏组合。', '3title': '寄卖提交', '3text': '提供照片指引、定价审核与清晰的打款安排。', '4title': '以信任为先的服务', '4text': '人工付款确认、自提安排、争议时限及拍品审核更加周全。' },
-      slate: { eyebrow: '当前拍卖档期', title: '每周精选上架', link: '查看所有拍卖 →', card1time: '周日晚上 9:00 结束', card1title: 'Gold Star Showcase', card1text: '高分珍品、奖杯年代单卡与亮眼日版宣传卡。', card1li1: '38 件拍品', card1li2: '买家佣金 8% 起', card1li3: '结拍后发出账单', card1btn: '查看拍品', card2time: '周三晚上 8:00 开始', card2title: 'Modern Alt Art Night', card2text: '收录 Sword & Shield 至 Scarlet & Violet 时代热门卡。', card2li1: '52 件拍品', card2li2: '支持澳门本地交收', card2li3: '卖家身份已验证', card2btn: '预览档期', card3time: '上周已结束', card3title: 'PSA Vault Select', card3text: '竞争力评级卡、复古闪卡与低人口收藏精品。', card3li1: '成交率：84%', card3li2: '平均成交：MOP 1,960', card3li3: '待审争议：0', card3btn: '查看结果' },
-      payments: { eyebrow: '付款流程', title: '简单、清楚、值得信赖', text: '拍卖结束后，买家会收到清晰的账单摘要，完成本地转账后，再安排自提或寄送。', step1title: '1. 赢得拍品', step1text: '账单会列明拍品总额、买家佣金、寄送或自提选项，以及付款期限。', step2title: '2. 完成付款', step2text: '买家上传转账凭证或提供转账参考编号以便确认。', step3title: '3. 获取交付安排', step3text: '确认付款后，团队会安排自提详情或寄送。' },
+      experience: { eyebrow: '重点拍品', title: '当前拍卖焦点', link: '查看所有拍卖 →' },
+      features: { '1title': '实时拍卖', '1text': '拍品倒计时、底价提示、专员支持与更清晰的拍品呈现。', '2title': '现货浏览', '2text': '选购高端单卡、评级卡、密封产品与精选收藏组合。', '3title': '寄卖提交', '3text': '让卖家清楚了解收件、审核与打款安排。', '4title': '可靠本地服务', '4text': '人工付款确认、自提安排与放行控制更清楚。' },
+      slate: { eyebrow: '拍卖时间表', title: '每周精选上架', link: '查看所有拍卖 →', card1time: '周日晚上 9:00 结束', card1title: 'Gold Star Showcase', card1text: '高分珍品、奖杯年代单卡与亮眼日版宣传卡。', card1li1: '38 件拍品', card1li2: '买家佣金 8% 起', card1li3: '结拍后发出账单', card1btn: '查看拍品', card2time: '周三晚上 8:00 开始', card2title: 'Modern Alt Art Night', card2text: '收录 Sword & Shield 至 Scarlet & Violet 时代热门卡。', card2li1: '52 件拍品', card2li2: '支持澳门本地交收', card2li3: '卖家身份已验证', card2btn: '预览档期', card3time: '上周已结束', card3title: 'PSA Vault Select', card3text: '竞争力评级卡、复古闪卡与低人口收藏精品。', card3li1: '成交率：84%', card3li2: '平均成交：MOP 1,960', card3li3: '待审争议：0', card3btn: '查看结果' },
+      payments: { eyebrow: '如何参与', title: '出价前的简单步骤', text: '保留 tcgbid 风格的干净参与流程，但本地化成 Edmundo 在澳门的服务方式。', step1title: '1. 建立账号', step1text: '先注册收藏家账号，并准备好联系方式以便审核及付款跟进。', step2title: '2. 登记竞投', step2text: '加入相关拍卖、完成所需检查，并在出价前阅读拍卖条款。', step3title: '3. 准备付款方式', step3text: '预先准备转账资料或付款证明，让中标后能更快完成确认。' },
       trust: { title: '信任与服务机制', 1: '拍品上架前先审核卖家', 2: '高价拍品可按需要进一步核实身份', 3: '可疑竞投行为会进行人工检查', 4: '确认付款后才安排交收或寄送', 5: '每笔订单清楚列明问题申报时限' },
-      market: { eyebrow: '现货市场精选', title: '即买目录亮点', link: '进入现货市场 →', card1text: '日版 · 评级卡 · 低人口吸引力', card2text: '日版原封库存', card3text: '附已验证品相照片' }
+      market: { eyebrow: '最新消息', title: '收藏家更新与平台近况', link: '查看更多 →', card1text: '日版 · 评级卡 · 低人口吸引力', card2text: '日版原封库存', card3text: '附已验证品相照片' },
+      partners: { eyebrow: '合作伙伴', title: '收藏家、寄卖方与支持服务共同信任' }
     },
     auctions: {
       hero: { eyebrow: '拍卖时间表', title: '每周拍卖，一眼看清。', text: '快速浏览进行中、即将开始及已结束的活动，重点信息一目了然。' }, filterNote: '预览当前档期与精选拍卖亮点。',
-      row1: { time: '5 月 10 日晚上 9:00 结束', title: 'Gold Star Showcase', text: '复古珍品、低人口评级卡、Crystal 年代亮点与日版收藏好货。', tag1: '38 件拍品', tag2: '部分拍品设底价', tag3: '结拍后确认账单', side: '焦点估价：MOP 42,000', btn: '查看拍品' },
-      row2: { time: '5 月 11 日晚上 8:30 结束', title: 'Modern Alt Art Night', text: '精选现代热门卡，适合追求高质感与干净展示的收藏家。', tag1: '52 件拍品', tag2: '买家账号免登记费', tag3: '可在澳门自提', side: '当前最高出价：MOP 6,200', btn: '精选拍品' },
+      row1: { time: '5 月 10 日晚上 9:00 结束', title: 'Gold Star Showcase', text: '复古珍品、低人口评级卡、Crystal 年代亮点与日版收藏好货。', tag1: '38 件拍品', tag2: '部分拍品设底价', tag3: '结拍后确认账单', side: '焦点估价：MOP 42,000', btn: '浏览拍卖' },
+      row2: { time: '5 月 11 日晚上 8:30 结束', title: 'Modern Alt Art Night', text: '精选现代热门卡，适合追求高质感与干净展示的收藏家。', tag1: '52 件拍品', tag2: '买家账号免登记费', tag3: '可在澳门自提', side: '当前最高出价：MOP 6,200', btn: '浏览拍卖' },
       row3: { time: '5 月 14 日晚上 8:00 开始', title: 'Pokémon 151 Sealed Drop', text: '补充包盒、宣传包、配件组与少量密封箱，适合密封收藏玩家。', tag1: '24 件拍品', tag2: '卖家已审核', tag3: '需提供品相说明', sideTitle: '可预览', side: '预计区间：MOP 320 – 9,500', btn: '比较价格' },
-      row4: { time: '5 月 18 日晚上 7:30 开始', title: 'PSA Vault Select', text: '以高端评级卡为主的专场，高价拍品审核更严格。', tag1: '31 件拍品', tag2: '高额出价需核实身份', tag3: '可选保价寄送', sideTitle: '目录待公布', side: '寄卖收件 3 天后截止', btn: '提交卡片' },
+      row4: { time: '5 月 18 日晚上 7:30 开始', title: 'PSA Vault Select', text: '以高端评级卡为主的专场，高价拍品审核更严格。', tag1: '31 件拍品', tag2: '高额出价需核实身份', tag3: '可选保价寄送', sideTitle: '目录待公布', side: '寄卖收件 3 天后截止', btn: '登记' },
       row5: { time: '5 月 3 日已结束', title: 'Trainer Gallery Sprint', text: '中段快速专场，主打亲民追卡、纹理全图与密封配件。', tag1: '44 件拍品', tag2: '成交率 81%', tag3: '0 起争议', side: '平均成交：MOP 1,316', btn: '查看结果' },
       ops: { eyebrow: '拍卖运营', title: '清晰流程让竞投更安心', text: '好拍卖不只靠好卡，还需要明确时间、清楚买家预期、付款跟进与可靠交收安排。', listTitle: '服务检查清单', 1: '清楚标示设底价拍品', 2: '账单发出前检查可疑买家活动', 3: '保存付款证明参考资料', 4: '记录自提与寄送交接时间' }
     },
     detail: {
-      breadcrumbLot: '拍品 07', mock: { label: '精选评级卡预览', sub: '收藏展示示意图' }, live: '竞投中', meta: '拍品 07 · Gold Star Showcase', title: '2016 Pokémon Center Promo — Pikachu Poncho-Wearing Rayquaza PSA 10', lede: '重点拍品以更清晰的层级、信任信息与买家最关心的内容呈现。', bid: { current: '当前出价', next: '下一口最低出价', estimate: '估价' }, cta: { primary: '了解中标流程', secondary: '阅读买家 FAQ' }, fine: '此页所示拍卖活动内容仅作展示预览。', info: { lotTitle: '拍品资料', 1: '类别：评级单卡', 2: '语言：日文', 3: '认证资料会随正式拍品页面展示', 4: '底价：不公开显示', trustTitle: '信任说明' }, trust: { 1: '上架前已核实卖家身份', 2: '照片已由团队审阅', 3: '大幅跳价会作人工检查', 4: '确认付款后才可放行' }, desc: { eyebrow: '拍品说明', title: '面向收藏家的高质感展示方式', text1: '当前出价、下一口、拍卖时间、信任机制与中标后流程都会优先展示。', text2: '这种页面风格也保留空间放置来源说明、认证查核、细节照片与发货地信息。' }, history: { title: '出价记录', '1name': '买家 A12', '2name': '买家 H03', '3name': '买家 K77', '4name': '买家 A12' }, payment: { eyebrow: '付款流程', title: '中标后会发生什么', '1title': '发出账单', '1text': '买家会收到拍品金额、买家佣金与寄送／自提选项摘要。', '2title': '完成转账', '2text': '买家需在 48 小时内完成澳门或香港银行转账并提交证明。', '3title': '完成确认', '3text': '团队确认付款后，方可安排自提或寄送。' }, ops: { title: '服务备注', 1: '澳门买家可安排本地自提', 2: '寄送费用会在发货前确认', 3: '订单会在确认前维持保留状态', 4: '问题申报时限应清楚展示' }
+      breadcrumbLot: '拍品 07', mock: { label: '精选评级卡预览', sub: '收藏展示示意图' }, live: '竞投中', meta: '拍品 07 · Gold Star Showcase', title: '2016 Pokémon Center Promo — Pikachu Poncho-Wearing Rayquaza PSA 10', lede: '重点拍品以更清晰的层级、信任信息与买家最关心的内容呈现。', bid: { current: '当前出价', next: '下一口最低出价', estimate: '估价' }, cta: { primary: '了解中标流程', secondary: '阅读买家 FAQ' }, fine: '此页所示拍卖活动内容仅作展示预览。', info: { lotTitle: '拍品资料', 1: '类别：评级单卡', 2: '语言：日文', 3: '认证资料会随正式拍品页面展示', 4: '底价：不公开显示', trustTitle: '信任说明' }, trust: { 1: '上架前已核实卖家身份', 2: '照片已由团队审阅', 3: '大幅跳价会作人工检查', 4: '确认付款后才可放行' }, desc: { eyebrow: '拍品说明', title: '面向收藏家的高质感展示方式', text1: '当前出价、下一口、拍卖时间、信任机制与中标后流程都会优先展示。', text2: '这种页面风格也保留空间放置来源说明、认证查核、细节照片与发货地信息。' }, history: { title: '出价记录', '1name': '买家 A12', '2name': '买家 H03', '3name': '买家 K77', '4name': '买家 A12' }, payment: { eyebrow: '付款流程', title: '中标后会发生什么', '1title': '发出账单', '1text': '买家会收到拍品金额、买家佣金与寄送／自提选项摘要。', '2title': '完成转账', '2text': '买家需在 48 小时内完成澳门或香港银行转账并提交证明。', '3title': '完成确认', '3text': '团队确认付款后，方可安排自提或寄送。' }, ops: { title: '服务备注', 1: '澳门买家可安排本地自提', 2: '寄送费用会在发货前确认', 3: '订单会在确认前维持保留状态', 4: '问题申报时限应清楚展示' }, metrics: { title: '市场概况', a: '拍卖估价', b: '对比成交', c: '出价活跃度', d: '收藏需求' }, gate: { title: '近期成交记录', body: '登录后可查看对比成交、专员备注与更多市场资料。', cta: '登录 / 注册查看' }
     },
     market: {
       hero: { eyebrow: '即买目录', title: '现货搜索，更清爽。', text: '以更干净的浏览体验探索单卡、评级卡、密封产品与收藏组合。' },
-      filters: { title: '搜索筛选', keyword: '关键词', keywordPlaceholder: 'Pikachu、Umbreon、151...', category: '分类', categoryAll: '全部分类', categorySingles: '单卡', categoryGraded: '评级卡', categorySealed: '密封产品', categoryAccessories: '配件', condition: '品相', conditionAny: '任何品相', conditionRaw: '原卡 NM', price: '价格范围', pricePlaceholder: 'MOP 500 - 5,000', button: '应用筛选', note: '此处展示搜索操作界面预览。' },
-      results: { count: '24 个结果', note: '澳门高端 Pokémon 库存的最佳匹配', sort: '排序', sortFeatured: '精选', sortPrice: '价格：从低到高', sortNewest: '最新上架' },
+      filters: { title: '搜索筛选', keyword: '关键词', keywordPlaceholder: 'Pikachu、Umbreon、151...', category: '分类', categoryAll: '全部分类', categorySingles: '单卡', categoryGraded: '评级卡', categorySealed: '密封产品', categoryAccessories: '配件', condition: '品相', conditionAny: '任何品相', conditionRaw: '原卡 NM', price: '价格范围', pricePlaceholder: 'MOP 500 - 5,000', button: '应用筛选', note: '此处展示搜索操作界面预览。', minimal: '筛选' },
+      results: { count: '24 个结果', note: '澳门高端 Pokémon 库存的最佳匹配', sort: '排序', sortFeatured: '精选', sortPrice: '价格：从低到高', sortNewest: '最新上架', title: 'Products' },
       card1: { text: '日版宣传卡 · 认证资料已人工核实', small: '可本地自提或保价寄送' }, card2: { text: '附正反面详细品相照片', small: '卖家已获现货市场上架批准' }, card3: { text: '日版密封库存 · 入库时已确认封膜', small: '可供数量：6' }, card4: { pill: '收藏组合', title: 'EX Era 相册入门组合', text: '混合闪卡与原卡页面，适合怀旧收藏家', small: '结账前会做额外审核' }, card5: { text: '现代热门评级卡，观感出色', small: '发出账单后可接受银行转账' }, card6: { pill: '配件', title: 'Pokémon Center 卡套套装', text: '适合加购的密封配件', small: '可加入现货市场账单' },
       ops: { eyebrow: '现货市场运营', title: '稳定目录能补足拍卖节奏', text: '拍卖带来话题与热度，现货市场带来稳定成交，两者结合可改善价格判断与回购体验。', listTitle: '此页展示的信任提示', 1: '品相说明提示', 2: '卖家审核标示', 3: '人工付款确认预期', 4: '自提与保价寄送选项' }
     },
@@ -279,7 +319,7 @@ const storage = {
     try {
       window.localStorage.setItem(key, value);
     } catch {
-      // Ignore storage failures in restricted browsers/private mode.
+      // Ignore storage failures.
     }
   }
 };
@@ -308,6 +348,12 @@ function applyTranslations(lang) {
     if (value !== undefined) el.textContent = value;
   });
 
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-html');
+    const value = getValue(dict, key);
+    if (value !== undefined) el.innerHTML = value;
+  });
+
   document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
     const key = el.getAttribute('data-i18n-placeholder');
     const value = getValue(dict, key);
@@ -324,8 +370,9 @@ function applyTranslations(lang) {
   storage.set('siteLanguage', nextLang);
 
   document.querySelectorAll('.lang-btn').forEach((btn) => {
-    btn.classList.toggle('active', btn.dataset.lang === nextLang);
-    btn.setAttribute('aria-pressed', btn.dataset.lang === nextLang ? 'true' : 'false');
+    const active = btn.dataset.lang === nextLang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
 
   tickCountdowns();

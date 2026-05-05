@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register — Edmundo`s TCG BID</title>
+  <meta name="description" content="Login or create an account for Edmundo`s TCG BID." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <div class="utility-bar">
+      <div class="container utility-wrap">
+        <div class="utility-note" data-i18n="util.note">Private collector lots · Trusted Macau service</div>
+        <div class="utility-links">
+          <a href="login.html" data-i18n="util.login">Login / Register</a>
+          <a href="#" data-i18n="util.cart">View Cart</a>
+          <a href="#" data-i18n="util.orders">View Orders</a>
+          <a href="#" data-i18n="util.wishlist">Wishlist</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">E</span>
+          <div>
+            <strong>Edmundo`s TCG BID</strong>
+            <span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span>
+          </div>
+        </a>
+        <div class="lang-switcher desktop-lang" aria-label="Language switcher">
+          <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
+          <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
+          <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="eyebrow">Collector account</div>
+          <h1>Login / Register</h1>
+          <p>Simple two-column authentication layout inspired by the tcgbid reference screenshots Ricardo collected.</p>
+        </div>
+      </section>
+
+      <section class="section tight-top">
+        <div class="container auth-grid">
+          <div class="auth-panel panel">
+            <h2 class="section-title-serif" style="font-size:2.4rem;">Login</h2>
+            <div class="form-grid" style="grid-template-columns:1fr;margin-top:1rem;">
+              <label class="input-label"><span>Email address</span><input type="email" placeholder="collector@email.com" /></label>
+              <label class="input-label"><span>Password</span><input type="password" placeholder="••••••••" /></label>
+            </div>
+            <a href="#" class="text-link" style="font-size:0.78rem;">Forgot your password?</a>
+            <div style="margin-top:1.2rem;"><button class="btn">Login</button></div>
+          </div>
+
+          <aside class="register-panel panel">
+            <div class="eyebrow">New collector</div>
+            <h2 class="section-title-serif" style="font-size:2.4rem;">Create account</h2>
+            <p style="margin-top:1rem;">Create a collector profile to browse auctions, register to bid, follow lots, and prepare future marketplace orders.</p>
+            <div style="margin-top:1.5rem;"><button class="btn">Register</button></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main footer-grid">
+        <div class="footer-brand">
+          <strong>Edmundo`s TCG BID</strong>
+          <p data-i18n="footer.blurb">A polished Macau-facing preview for premium Pokémon card auctions, marketplace listings, and consignment services.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="Facebook">◉</a>
+            <a href="#" aria-label="WhatsApp">◌</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.pages">Informations</span>
+          <div class="footer-links">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.navigate">Help</span>
+          <div class="footer-links">
+            <a href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
+            <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a href="login.html" data-i18n="util.login">Login / Register</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.serviceTitle">Contact Us</span>
+          <ul class="contact-list">
+            <li data-i18n="footer.address">Macau Peninsula · collector pickup by appointment</li>
+            <li data-i18n="footer.phone">+853 6200 0000</li>
+            <li data-i18n="footer.email">hello@edmundostcgbid.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div data-i18n="footer.copyright">© 2026 Edmundo`s TCG BID. All rights reserved.</div>
+        <div class="payment-strip">
+          <span class="payment-pill">Visa</span>
+          <span class="payment-pill">Mastercard</span>
+          <span class="payment-pill">Bank</span>
+          <span class="payment-pill">MOP</span>
+        </div>
+      </div>
+    </footer>
+
+    <a class="whatsapp-float" href="#" aria-label="WhatsApp">✆</a>
+  </div>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

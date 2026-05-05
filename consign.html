@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,31 +7,66 @@
   <meta name="description" content="Learn how to consign Pokémon cards and collections with clear review and payout expectations." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body data-page="consign">
   <div class="site-shell">
+    <div class="utility-bar">
+      <div class="container utility-wrap">
+        <div class="utility-note" data-i18n="util.note">Private collector lots · Trusted Macau service</div>
+        <div class="utility-links">
+          <a href="login.html" data-i18n="util.login">Login / Register</a>
+          <a href="#" data-i18n="util.cart">View Cart</a>
+          <a href="#" data-i18n="util.orders">View Orders</a>
+          <a href="#" data-i18n="util.wishlist">Wishlist</a>
+        </div>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span></div></a>
-        <button class="nav-toggle" aria-label="Open menu" data-i18n-aria-label="nav.openMenu">☰</button>
-        <div class="nav-actions">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">E</span>
+          <div>
+            <strong>Edmundo`s TCG BID</strong>
+            <span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span>
+          </div>
+        </a>
+
+        <div class="header-right">
           <nav class="site-nav">
+            <div class="mobile-drawer-extra"><div class="drawer-note" data-i18n="drawer.note">Explore</div></div>
             <a href="index.html" data-i18n="nav.home">Home</a>
-            <a href="auctions.html" data-i18n="nav.auctions">Auctions</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
             <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
-            <a class="active" href="consign.html" data-i18n="nav.consign">Consign</a>
+            <a class="active" href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
             <a href="faq.html" data-i18n="nav.faq">FAQ</a>
-            <a class="btn btn-sm" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+            <a class="btn btn-sm nav-cta" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+            <div class="mobile-drawer-extra">
+              <div class="mobile-quick-links">
+                <a href="login.html" data-i18n="drawer.account">Login / Register</a>
+                <a href="#" data-i18n="drawer.cart">Cart</a>
+                <a href="#" data-i18n="drawer.wishlist">Wishlist</a>
+              </div>
+              <div class="lang-switcher mobile-lang" aria-label="Language switcher">
+                <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
+                <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
+                <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
+              </div>
+            </div>
           </nav>
-          <div class="lang-switcher" aria-label="Language switcher">
+
+          <div class="lang-switcher desktop-lang" aria-label="Language switcher">
             <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
             <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
             <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
           </div>
+
+          <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n-aria-label="nav.openMenu">☰</button>
         </div>
       </div>
+      <div class="nav-backdrop"></div>
     </header>
 
     <main>
@@ -45,7 +80,7 @@
 
       <section class="section tight-top">
         <div class="container split-grid">
-          <div class="glass-panel form-panel">
+          <div class="form-panel">
             <h2 data-i18n="consign.form.title">Consignment interest form</h2>
             <div class="form-grid">
               <label class="input-label"><span data-i18n="consign.form.name">Name</span><input type="text" placeholder="Your name" data-i18n-placeholder="consign.form.namePlaceholder" /></label>
@@ -62,10 +97,10 @@
               <label class="input-label full"><span data-i18n="consign.form.description">Short description</span><textarea placeholder="Examples: PSA 10 promos, Japanese sealed, vintage binder pages..." data-i18n-placeholder="consign.form.descriptionPlaceholder"></textarea></label>
             </div>
             <button class="btn" data-i18n="consign.form.button">Submit enquiry</button>
-            <p class="fine-print" data-i18n="consign.form.note">This form is shown as a preview of the seller intake experience.</p>
+            <p class="fine-print" style="margin-top:0.9rem;" data-i18n="consign.form.note">This form is shown as a preview of the seller intake experience.</p>
           </div>
 
-          <aside class="glass-panel">
+          <aside class="panel" style="padding:1.35rem;">
             <h3 data-i18n="consign.side.title">What sellers want to know</h3>
             <ul class="check-list">
               <li data-i18n="consign.side.1">Review before approval to auction or marketplace</li>
@@ -82,7 +117,7 @@
         <div class="container split-grid">
           <div>
             <div class="eyebrow" data-i18n="consign.how.eyebrow">How it works</div>
-            <h2 data-i18n="consign.how.title">A seller flow that feels orderly and professional</h2>
+            <h2 class="section-title-serif" data-i18n="consign.how.title">A seller flow that feels orderly and professional</h2>
             <div class="timeline">
               <div class="timeline-item"><strong data-i18n="consign.how.1title">1. Intake</strong><span data-i18n="consign.how.1text">The seller shares photos, estimates, and preferred sale method. Staff then recommends auction or marketplace placement.</span></div>
               <div class="timeline-item"><strong data-i18n="consign.how.2title">2. Review</strong><span data-i18n="consign.how.2text">Authenticity, condition, and pricing are reviewed manually before publication.</span></div>
@@ -90,7 +125,7 @@
               <div class="timeline-item"><strong data-i18n="consign.how.4title">4. Payout</strong><span data-i18n="consign.how.4text">After buyer payment is confirmed and the order is released, seller payout follows the agreed schedule.</span></div>
             </div>
           </div>
-          <aside class="glass-panel">
+          <aside class="panel" style="padding:1.35rem;">
             <h3 data-i18n="consign.how.listTitle">Suggested service policies</h3>
             <ul class="check-list">
               <li data-i18n="consign.how.5">Consignor agreement completed before go-live</li>
@@ -106,10 +141,10 @@
         <div class="container split-grid">
           <div>
             <div class="eyebrow" data-i18n="consign.pay.eyebrow">Payout flow</div>
-            <h2 data-i18n="consign.pay.title">Simple payment rails keep launch operations practical</h2>
+            <h2 class="section-title-serif" data-i18n="consign.pay.title">Simple payment rails keep launch operations practical</h2>
             <p data-i18n="consign.pay.text">Seller payouts can be handled by bank transfer after buyer funds are confirmed. It is straightforward, cost-efficient, and easy for staff to track.</p>
           </div>
-          <aside class="glass-panel">
+          <aside class="panel" style="padding:1.35rem;">
             <h3 data-i18n="consign.pay.listTitle">Admin control points</h3>
             <ul class="check-list">
               <li data-i18n="consign.pay.1">Hold payout until payment clears</li>
@@ -123,14 +158,54 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div><strong>Edmundo`s TCG BID</strong><p data-i18n="footer.blurb">Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.</p></div>
-        <div><span class="footer-label" data-i18n="footer.pages">Pages</span><a href="auctions.html" data-i18n="nav.auctions">Auctions</a><a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a><a href="faq.html" data-i18n="nav.faq">FAQ</a></div>
-        <div><span class="footer-label" data-i18n="footer.serviceTitle">Collector service</span><p data-i18n="footer.serviceText">Auction examples, prices, and timelines are presented as sample content for preview purposes.</p></div>
+      <div class="container footer-main footer-grid">
+        <div class="footer-brand">
+          <strong>Edmundo`s TCG BID</strong>
+          <p data-i18n="footer.blurb">A polished Macau-facing preview for premium Pokémon card auctions, marketplace listings, and consignment services.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="Facebook">◉</a>
+            <a href="#" aria-label="WhatsApp">◌</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.pages">Informations</span>
+          <div class="footer-links">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.navigate">Help</span>
+          <div class="footer-links">
+            <a href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
+            <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a href="login.html" data-i18n="util.login">Login / Register</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.serviceTitle">Contact Us</span>
+          <ul class="contact-list">
+            <li data-i18n="footer.address">Macau Peninsula · collector pickup by appointment</li>
+            <li data-i18n="footer.phone">+853 6200 0000</li>
+            <li data-i18n="footer.email">hello@edmundostcgbid.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div data-i18n="footer.copyright">© 2026 Edmundo`s TCG BID. All rights reserved.</div>
+        <div class="payment-strip">
+          <span class="payment-pill">Visa</span>
+          <span class="payment-pill">Mastercard</span>
+          <span class="payment-pill">Bank</span>
+          <span class="payment-pill">MOP</span>
+        </div>
       </div>
     </footer>
+
+    <a class="whatsapp-float" href="#" aria-label="WhatsApp">✆</a>
   </div>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
-

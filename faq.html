@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,31 +7,66 @@
   <meta name="description" content="Frequently asked questions about bidding, payment, pickup, shipping, and consignments." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body data-page="faq">
   <div class="site-shell">
+    <div class="utility-bar">
+      <div class="container utility-wrap">
+        <div class="utility-note" data-i18n="util.note">Private collector lots · Trusted Macau service</div>
+        <div class="utility-links">
+          <a href="login.html" data-i18n="util.login">Login / Register</a>
+          <a href="#" data-i18n="util.cart">View Cart</a>
+          <a href="#" data-i18n="util.orders">View Orders</a>
+          <a href="#" data-i18n="util.wishlist">Wishlist</a>
+        </div>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="index.html"><span class="brand-mark">E</span><div><strong>Edmundo`s TCG BID</strong><span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span></div></a>
-        <button class="nav-toggle" aria-label="Open menu" data-i18n-aria-label="nav.openMenu">☰</button>
-        <div class="nav-actions">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">E</span>
+          <div>
+            <strong>Edmundo`s TCG BID</strong>
+            <span data-i18n="brand.tagline">Macau Pokémon card auctions, done properly</span>
+          </div>
+        </a>
+
+        <div class="header-right">
           <nav class="site-nav">
+            <div class="mobile-drawer-extra"><div class="drawer-note" data-i18n="drawer.note">Explore</div></div>
             <a href="index.html" data-i18n="nav.home">Home</a>
-            <a href="auctions.html" data-i18n="nav.auctions">Auctions</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
             <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
-            <a href="consign.html" data-i18n="nav.consign">Consign</a>
+            <a href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
             <a class="active" href="faq.html" data-i18n="nav.faq">FAQ</a>
-            <a class="btn btn-sm" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+            <a class="btn btn-sm nav-cta" href="auction-detail.html" data-i18n="nav.sampleLot">Featured Lot</a>
+            <div class="mobile-drawer-extra">
+              <div class="mobile-quick-links">
+                <a href="login.html" data-i18n="drawer.account">Login / Register</a>
+                <a href="#" data-i18n="drawer.cart">Cart</a>
+                <a href="#" data-i18n="drawer.wishlist">Wishlist</a>
+              </div>
+              <div class="lang-switcher mobile-lang" aria-label="Language switcher">
+                <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
+                <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
+                <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
+              </div>
+            </div>
           </nav>
-          <div class="lang-switcher" aria-label="Language switcher">
+
+          <div class="lang-switcher desktop-lang" aria-label="Language switcher">
             <button type="button" class="lang-btn active" data-lang="en" aria-label="English"><span class="flag-emoji" aria-hidden="true">🇬🇧</span></button>
             <button type="button" class="lang-btn" data-lang="zh-HK" aria-label="Cantonese"><span class="flag-emoji" aria-hidden="true">🇲🇴</span></button>
             <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Mandarin"><span class="flag-emoji" aria-hidden="true">🇨🇳</span></button>
           </div>
+
+          <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n-aria-label="nav.openMenu">☰</button>
         </div>
       </div>
+      <div class="nav-backdrop"></div>
     </header>
 
     <main>
@@ -46,29 +81,29 @@
       <section class="section tight-top">
         <div class="container split-grid faq-layout">
           <div>
-            <div class="faq-item glass-panel">
+            <div class="faq-item">
               <h3 data-i18n="faq.q1.title">How do I bid?</h3>
               <p data-i18n="faq.q1.text">Buyers create an account, complete any required verification, and place bids on eligible lots during the auction window.</p>
             </div>
-            <div class="faq-item glass-panel">
+            <div class="faq-item" style="margin-top:1rem;">
               <h3 data-i18n="faq.q2.title">How do I pay if I win?</h3>
               <p data-i18n="faq.q2.text">Winners receive an invoice and complete payment by bank transfer within 48 hours. Staff then confirms payment before release, pickup, or shipping.</p>
             </div>
-            <div class="faq-item glass-panel">
+            <div class="faq-item" style="margin-top:1rem;">
               <h3 data-i18n="faq.q3.title">Can Macau buyers collect in person?</h3>
               <p data-i18n="faq.q3.text">Yes. Local pickup is available for eligible orders and helps make payment confirmation and handoff simpler.</p>
             </div>
-            <div class="faq-item glass-panel">
+            <div class="faq-item" style="margin-top:1rem;">
               <h3 data-i18n="faq.q4.title">What happens when a seller submits expensive cards?</h3>
               <p data-i18n="faq.q4.text">High-value cards may require additional identity checks, photo review, reserve discussion, and supporting provenance details.</p>
             </div>
-            <div class="faq-item glass-panel">
+            <div class="faq-item" style="margin-top:1rem;">
               <h3 data-i18n="faq.q5.title">Is the marketplace separate from auctions?</h3>
               <p data-i18n="faq.q5.text">They serve different buyer journeys, but they work well together. Unsold auction lots can move into marketplace inventory, while marketplace pricing helps guide auction expectations.</p>
             </div>
           </div>
 
-          <aside class="glass-panel faq-side">
+          <aside class="faq-side panel" style="padding:1.35rem;">
             <h3 data-i18n="faq.side.title">Service playbook</h3>
             <div class="timeline small-timeline">
               <div class="timeline-item"><strong data-i18n="faq.side.1title">Accounts</strong><span data-i18n="faq.side.1text">Early users can be reviewed carefully before bidding access is granted.</span></div>
@@ -84,10 +119,10 @@
         <div class="container split-grid">
           <div>
             <div class="eyebrow" data-i18n="faq.next.eyebrow">Recommended next step</div>
-            <h2 data-i18n="faq.next.title">The right foundation for a full launch</h2>
+            <h2 class="section-title-serif" data-i18n="faq.next.title">The right foundation for a full launch</h2>
             <p data-i18n="faq.next.text">A complete launch should pair this polished front end with account management, bid tracking, invoice handling, moderation tools, and payment status controls behind the scenes.</p>
           </div>
-          <aside class="glass-panel">
+          <aside class="panel" style="padding:1.35rem;">
             <h3 data-i18n="faq.next.listTitle">Core service modules</h3>
             <ul class="check-list">
               <li data-i18n="faq.next.1">Bidder eligibility and account controls</li>
@@ -102,14 +137,54 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div><strong>Edmundo`s TCG BID</strong><p data-i18n="footer.blurb">Premium Pokémon card auctions, marketplace listings, and consignment services for collectors in Macau and Hong Kong.</p></div>
-        <div><span class="footer-label" data-i18n="footer.explore">Explore</span><a href="index.html" data-i18n="nav.home">Home</a><a href="auctions.html" data-i18n="nav.auctions">Auctions</a><a href="consign.html" data-i18n="nav.consign">Consign</a></div>
-        <div><span class="footer-label" data-i18n="footer.serviceTitle">Collector service</span><p data-i18n="footer.serviceText">Auction examples, prices, and timelines are presented as sample content for preview purposes.</p></div>
+      <div class="container footer-main footer-grid">
+        <div class="footer-brand">
+          <strong>Edmundo`s TCG BID</strong>
+          <p data-i18n="footer.blurb">A polished Macau-facing preview for premium Pokémon card auctions, marketplace listings, and consignment services.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="Facebook">◉</a>
+            <a href="#" aria-label="WhatsApp">◌</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.pages">Informations</span>
+          <div class="footer-links">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="marketplace.html" data-i18n="nav.marketplace">Marketplace</a>
+            <a href="auctions.html" data-i18n="nav.auctions">Upcoming Schedule</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.navigate">Help</span>
+          <div class="footer-links">
+            <a href="consign.html" data-i18n="nav.consign">Consign & Sell</a>
+            <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+            <a href="login.html" data-i18n="util.login">Login / Register</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-heading" data-i18n="footer.serviceTitle">Contact Us</span>
+          <ul class="contact-list">
+            <li data-i18n="footer.address">Macau Peninsula · collector pickup by appointment</li>
+            <li data-i18n="footer.phone">+853 6200 0000</li>
+            <li data-i18n="footer.email">hello@edmundostcgbid.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div data-i18n="footer.copyright">© 2026 Edmundo`s TCG BID. All rights reserved.</div>
+        <div class="payment-strip">
+          <span class="payment-pill">Visa</span>
+          <span class="payment-pill">Mastercard</span>
+          <span class="payment-pill">Bank</span>
+          <span class="payment-pill">MOP</span>
+        </div>
       </div>
     </footer>
+
+    <a class="whatsapp-float" href="#" aria-label="WhatsApp">✆</a>
   </div>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
-
