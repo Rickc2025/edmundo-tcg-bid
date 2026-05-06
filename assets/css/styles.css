@@ -1264,7 +1264,8 @@ textarea { min-height: 140px; resize: vertical; }
     left: 0;
     top: 0;
     bottom: 0;
-    width: min(88vw, 360px);
+    width: min(92vw, 380px);
+    max-width: 380px;
     background: #fff;
     border-right: 1px solid var(--line);
     box-shadow: 16px 0 40px rgba(0,0,0,0.12);
@@ -1276,6 +1277,7 @@ textarea { min-height: 140px; resize: vertical; }
     transform: translateX(-104%);
     transition: transform 0.25s ease;
     overflow-y: auto;
+    overflow-x: hidden;
     z-index: 60;
   }
   body.nav-open .site-nav { transform: translateX(0); }
@@ -1292,7 +1294,11 @@ textarea { min-height: 140px; resize: vertical; }
   .site-nav .nav-cta { margin-top: 0.3rem; }
   .mobile-drawer-extra,
   .mobile-primary-links { display: block; width: 100%; }
-  .nav-wrap { min-height: 74px; }
+  .nav-wrap {
+    min-height: 74px;
+    position: relative;
+    overflow: visible;
+  }
   .brand-mark {
     width: 48px;
     height: 48px;
