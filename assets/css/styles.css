@@ -248,6 +248,25 @@ button, input, select, textarea { font: inherit; }
   text-transform: uppercase;
   letter-spacing: 0.18em;
 }
+.drawer-header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.drawer-close {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
 .mobile-primary-links {
   display: none;
   width: 100%;

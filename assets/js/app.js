@@ -1,6 +1,7 @@
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
 const navBackdrop = document.querySelector('.nav-backdrop');
+const drawerClose = document.querySelector('.drawer-close');
 const body = document.body;
 
 function setNavOpen(isOpen) {
@@ -15,6 +16,7 @@ navToggle?.addEventListener('click', () => {
 });
 
 navBackdrop?.addEventListener('click', () => setNavOpen(false));
+drawerClose?.addEventListener('click', () => setNavOpen(false));
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') setNavOpen(false);
