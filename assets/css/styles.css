@@ -1261,15 +1261,15 @@ textarea { min-height: 140px; resize: vertical; }
   .desktop-lang { display: none; }
   .site-nav {
     position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: min(92vw, 380px);
-    max-width: 380px;
-    background: #fff;
+    inset: 0 auto 0 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100dvh;
+    min-height: 100dvh;
+    background: #fff !important;
     border-right: 1px solid var(--line);
     box-shadow: 16px 0 40px rgba(0,0,0,0.12);
-    padding: 1.2rem 1.2rem 2rem;
+    padding: max(1.2rem, env(safe-area-inset-top)) 1.2rem calc(2rem + env(safe-area-inset-bottom));
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1278,9 +1278,12 @@ textarea { min-height: 140px; resize: vertical; }
     transition: transform 0.25s ease;
     overflow-y: auto;
     overflow-x: hidden;
-    z-index: 60;
+    z-index: 999;
   }
-  body.nav-open .site-nav { transform: translateX(0); }
+  body.nav-open .site-nav {
+    transform: translateX(0);
+    visibility: visible;
+  }
   body.nav-open .nav-backdrop { display: block; }
   .site-nav > a { display: none; }
   .site-nav a {
